@@ -42,21 +42,51 @@ const refSidebar = [
 
 export default defineConfig({
   lang: 'zh-CN',
-  title: 'AI 时代的编程指南',
-  description: 'Stickman Charles 的书架。《AI 时代的编程指南》官方站点：五册阶梯 + 速查 + 真实项目。',
+  title: 'Stickman Charles Books',
+  description: 'Stickman Charles 的书架——存放我写的每一本书。现在架上：《AI 时代的编程指南》，五册阶梯 + 速查 + 真实项目。',
   cleanUrls: true,
   appearance: 'dark',
   sitemap: { hostname: 'https://books.stickmancharles.com' },
   head: [
+    ['link', { rel: 'icon', type: 'image/png', href: '/favicon.png' }],
     ['link', { rel: 'preconnect', href: 'https://fonts.googleapis.com' }],
     ['link', { rel: 'preconnect', href: 'https://fonts.gstatic.com', crossorigin: '' }],
     ['link', { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Noto+Sans+SC:wght@300;400;500;700&display=swap' }],
+    ['link', { rel: 'llms', type: 'text/plain', href: '/llms.txt' }],
+    ['meta', { name: 'robots', content: 'index, follow' }],
+    ['meta', { name: 'ai-crawl', content: 'index' }],
     ['meta', { property: 'og:type', content: 'website' }],
     ['meta', { property: 'og:site_name', content: 'Stickman Charles Books' }],
-    ['meta', { property: 'og:title', content: 'AI 时代的编程指南 · Stickman Charles Books' }],
-    ['meta', { property: 'og:description', content: '你不需要成为程序员，但你需要看懂程序员的世界。五册阶梯 + 速查 + 真实项目。' }],
+    ['meta', { property: 'og:title', content: 'Stickman Charles Books — Stickman Charles 的书架' }],
+    ['meta', { property: 'og:description', content: 'Stickman Charles 的书架——存放我写的每一本书。现在架上：《AI 时代的编程指南》。' }],
     ['meta', { property: 'og:url', content: 'https://books.stickmancharles.com/' }],
-    ['meta', { name: 'twitter:card', content: 'summary' }],
+    ['meta', { property: 'og:image', content: 'https://books.stickmancharles.com/og-image.png' }],
+    ['meta', { name: 'twitter:card', content: 'summary_large_image' }],
+    ['meta', { name: 'twitter:image', content: 'https://books.stickmancharles.com/og-image.png' }],
+    ['script', { type: 'application/ld+json' }, JSON.stringify({
+      '@context': 'https://schema.org',
+      '@graph': [
+        {
+          '@type': 'WebSite',
+          '@id': 'https://books.stickmancharles.com/#website',
+          url: 'https://books.stickmancharles.com/',
+          name: 'Stickman Charles Books',
+          description: 'The bookshelf of Stickman Charles (Charles Tao) — home of every book he writes.',
+          inLanguage: 'zh-CN',
+          publisher: { '@id': 'https://stickmancharles.com/#charles-tao' },
+        },
+        {
+          '@type': 'BookSeries',
+          '@id': 'https://books.stickmancharles.com/#ai-guide',
+          name: 'AI 时代的编程指南',
+          alternateName: 'The AI-Era Programming Guide',
+          url: 'https://books.stickmancharles.com/guide/overview',
+          inLanguage: 'zh-CN',
+          author: { '@id': 'https://stickmancharles.com/#charles-tao' },
+          license: 'https://creativecommons.org/licenses/by-nc-nd/4.0/',
+        },
+      ],
+    })],
   ],
   themeConfig: {
     siteTitle: 'STICKMAN CHARLES BOOKS',
@@ -92,7 +122,7 @@ export default defineConfig({
     returnToTopLabel: '回到顶部',
     footer: {
       message: '由 Charles Tao 与 Claude 协作写成——这本身就是这套书讲的工作方式。 · <a href="/license">许可</a>',
-      copyright: '献给我的父亲 Roy：只要想学，最好的时间就是现在。'
+      copyright: '© 2026 Charles Tao · 献给我的父亲 Roy：只要想学，最好的时间就是现在。'
     },
   },
 })

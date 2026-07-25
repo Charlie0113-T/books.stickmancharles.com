@@ -1,6 +1,8 @@
 # books.stickmancharles.com
 
-Stickman Charles 的书架——《AI 时代的编程指南》的官方站点。五册阶梯 + 速查 + 真实项目。
+Stickman Charles 的书架——存放我写的每一本书。现在架上：《AI 时代的编程指南》，五册阶梯 + 速查 + 真实项目。
+
+- **设计规格**：主站仓库（Charlie0113-T.github.io）的 `DESIGN.md`——Personal OS 设计系统。本站把它的 token 映射进 `docs/.vitepress/theme/custom.css`。
 
 - **单一真相源**：书稿在 `books/`，站点章节由 `scripts/assemble.mjs` 生成。改书 → `npm run assemble` → 站点更新。永远不手改 `docs/guide/` 下的生成文件。
 - 本地：`npm install && npm run docs:dev`

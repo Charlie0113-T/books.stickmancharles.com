@@ -74,7 +74,7 @@ function toggleTheme() {
 
 <template>
   <section class="os">
-    <h1 class="sr-only">AI 时代的编程指南 · Stickman Charles Books</h1>
+    <h1 class="sr-only">Stickman Charles Books — Stickman Charles 的书架</h1>
 
     <nav class="topnav">
       <span class="nav-logo">STICKMAN CHARLES BOOKS</span>

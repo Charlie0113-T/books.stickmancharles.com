@@ -1,6 +1,7 @@
 /* ═══════════════════════════════════════════════════════════
    PERSONAL OS × VitePress
-   变量与基调移植自 stickmancharles.com 的 style.css
+   设计规格：主站仓库的 DESIGN.md（token 真相源是主站 style.css）
+   本文件把那些 token 映射到 VitePress 的 --vp-c-* 变量
    Black & White · Semi-Transparent · Structured
    ═══════════════════════════════════════════════════════════ */
 
@@ -130,6 +131,78 @@ body::after {
 .VPHero .tagline { color: var(--vp-c-text-2); font-weight: 300; }
 .VPFeature { border: 1px solid var(--vp-c-divider); border-radius: var(--pos-radius); background: var(--vp-c-bg-soft); transition: border-color 0.25s ease, transform 0.25s ease; }
 .VPFeature:hover { border-color: var(--vp-c-border); transform: translateY(-3px); }
+
+/* ═══ 阅读页：向主站风格看齐（DESIGN.md §3） ═══ */
+
+/* 导航条：blur 16 + 细下边（主站 .nav 同款） */
+.VPNav, .VPNavBar {
+  background: color-mix(in srgb, var(--vp-c-bg) 78%, transparent) !important;
+  -webkit-backdrop-filter: blur(16px);
+  backdrop-filter: blur(16px);
+}
+.VPNavBar { border-bottom: 1px solid var(--vp-c-divider) !important; }
+.VPNavBar .divider { display: none; }
+
+/* 侧边栏：黑底、等宽分组标签、白色竖线选中态 */
+.VPSidebar { background: var(--vp-c-bg) !important; border-right: 1px solid var(--vp-c-divider); }
+.VPSidebarItem.level-0 > .item > .text {
+  font-family: var(--vp-font-family-mono);
+  font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase;
+  color: var(--vp-c-text-2);
+}
+.VPSidebarItem.level-1 .text, .VPSidebarItem.level-2 .text { font-size: 13px; font-weight: 300; }
+.VPSidebarItem .item { border-left: 1px solid transparent; }
+.VPSidebarItem.is-active > .item {
+  border-left: 2px solid var(--vp-c-text-1);
+  padding-left: 6px;
+}
+.VPSidebarItem.is-active > .item > .link > .text { color: var(--vp-c-text-1); font-weight: 500; }
+
+/* 上一页/下一页：玻璃卡 + hover 升级（主站 module-card 语言） */
+.vp-doc .pager-link {
+  border: 1px solid var(--vp-c-divider);
+  border-radius: var(--pos-radius);
+  background: var(--vp-c-bg-soft);
+  transition: background 0.25s ease, border-color 0.25s ease;
+}
+.vp-doc .pager-link:hover { border-color: var(--vp-c-border); background: var(--vp-c-brand-soft); }
+.vp-doc .pager-link .desc {
+  font-family: var(--vp-font-family-mono);
+  font-size: 10px; letter-spacing: 0.16em; text-transform: uppercase;
+  color: var(--vp-c-text-3);
+}
+.vp-doc .pager-link .title { font-weight: 500; }
+
+/* 表格与代码：1px 细边 */
+.vp-doc table { border-collapse: collapse; }
+.vp-doc th, .vp-doc td { border: 1px solid var(--vp-c-divider); }
+.vp-doc th {
+  font-family: var(--vp-font-family-mono);
+  font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase;
+  color: var(--vp-c-text-2); background: var(--vp-c-bg-soft);
+}
+.vp-doc div[class*='language-'] { border: 1px solid var(--vp-c-divider); }
+
+/* 正文链接：主站式下边线，不变色 */
+.vp-doc a:not(.pager-link) {
+  text-decoration: none;
+  border-bottom: 1px solid var(--vp-c-border);
+  transition: border-color 0.25s ease;
+}
+.vp-doc a:not(.pager-link):hover { border-bottom-color: var(--vp-c-text-1); }
+
+/* 搜索按钮与弹层 */
+.DocSearch-Button, .VPNavBarSearchButton {
+  border: 1px solid var(--vp-c-divider) !important;
+  background: transparent !important;
+}
+
+/* 大纲当前项 */
+.VPDocAsideOutline .outline-marker { background: var(--vp-c-text-1); width: 2px; }
+
+/* 页脚 */
+.VPFooter { border-top: 1px solid var(--vp-c-divider) !important; background: var(--vp-c-bg) !important; }
+.VPFooter .message, .VPFooter .copyright { font-size: 12px; font-weight: 300; color: var(--vp-c-text-3); }
 
 /* 滚动条 */
 ::-webkit-scrollbar { width: 3px; height: 3px; }
