@@ -1,5 +1,6 @@
 ---
-layout: page
+layout: false
+title: AI 时代的编程指南
 ---
 
 <Bookshelf />
@@ -15,3 +16,18 @@ layout: page
 > 谨以此书献给我的父亲，Roy。感谢他一直以来对我做项目的支持与肯定。也是他用实际行动告诉了我——**只要想学，最好的时间就是现在。**
 
 </div>
+
+<footer class="shelf-foot">
+  <nav class="shelf-foot-nav" aria-label="站内导航">
+    <a href="/start/why">开始</a>
+    <a href="/guide/01/">指南</a>
+    <a href="/reference/git">速查</a>
+    <a href="/projects/first-website">项目</a>
+    <a href="/glossary">术语表</a>
+    <a href="/roadmap">路线图</a>
+    <a href="/license">许可</a>
+    <a href="https://stickmancharles.com">主站 ↗</a>
+  </nav>
+  <p>由 Charles Tao 与 Claude 协作写成——这本身就是这套书讲的工作方式。</p>
+  <p>献给我的父亲 Roy：只要想学，最好的时间就是现在。</p>
+</footer>

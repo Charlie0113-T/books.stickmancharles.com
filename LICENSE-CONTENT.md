@@ -1,6 +1,6 @@
 # 内容许可：CC BY-NC-ND 4.0
 
-本许可适用于本仓库的**正文内容与网站源文**：`books/` 下的书稿及由它生成的一切（`docs/guide/**`、`docs/glossary.md`）、`docs/reference/**`、`docs/start/**`、`docs/projects/**` 及站点文案。**书中的代码段与本仓库的代码（`scripts/`、`docs/.vitepress/`）适用 MIT，见 `LICENSE`。**人话版说明见站点 `/license` 页。
+本许可适用于本仓库的**正文内容与网站源码**：`books/` 下的书稿及由它生成的一切（`docs/guide/**`、`docs/glossary.md`）、`docs/reference/**`、`docs/start/**`、`docs/projects/**`、站点文案，以及网站源码本身（`scripts/`、`docs/.vitepress/`、部署配置）。**唯一的例外：书中出现的代码段适用 MIT，见 `LICENSE`。**人话版说明见站点 `/license` 页。
 
 署名格式：Charles Tao，《AI 时代的编程指南》，books.stickmancharles.com
 

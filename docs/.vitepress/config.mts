@@ -52,14 +52,14 @@ export default defineConfig({
     ['link', { rel: 'preconnect', href: 'https://fonts.gstatic.com', crossorigin: '' }],
     ['link', { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Noto+Sans+SC:wght@300;400;500;700&display=swap' }],
     ['meta', { property: 'og:type', content: 'website' }],
-    ['meta', { property: 'og:site_name', content: 'books.stickmancharles.com' }],
-    ['meta', { property: 'og:title', content: 'AI 时代的编程指南 · Stickman Charles 的书架' }],
+    ['meta', { property: 'og:site_name', content: 'Stickman Charles Books' }],
+    ['meta', { property: 'og:title', content: 'AI 时代的编程指南 · Stickman Charles Books' }],
     ['meta', { property: 'og:description', content: '你不需要成为程序员，但你需要看懂程序员的世界。五册阶梯 + 速查 + 真实项目。' }],
     ['meta', { property: 'og:url', content: 'https://books.stickmancharles.com/' }],
     ['meta', { name: 'twitter:card', content: 'summary' }],
   ],
   themeConfig: {
-    siteTitle: 'CHARLES TAO / BOOKS',
+    siteTitle: 'STICKMAN CHARLES BOOKS',
     nav: [
       { text: '开始', link: '/start/why' },
       { text: '指南', link: '/guide/01/' },

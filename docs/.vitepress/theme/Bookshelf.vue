@@ -1,53 +1,100 @@
 <script setup>
+import { ref, computed, onMounted } from 'vue'
 import { books } from './books-data.js'
+
+const lang = ref('zh')
+const isDark = ref(true)
+
+const STR = {
+  zh: { read: '在线阅读', pdf: '下载 PDF', writing: '写作中', ch: '章', toLang: 'EN' },
+  en: { read: 'Read online', pdf: 'Download PDF', writing: 'WRITING', ch: 'ch', toLang: '中' },
+}
+const t = computed(() => STR[lang.value])
+const shelf = computed(() =>
+  books.map(b => ({
+    ...b,
+    title: lang.value === 'zh' ? b.title_zh : b.title_en,
+    subtitle: lang.value === 'zh' ? b.subtitle_zh : b.subtitle_en,
+    blurb: lang.value === 'zh' ? b.blurb_zh : b.blurb_en,
+  }))
+)
+
+onMounted(() => {
+  const saved = localStorage.getItem('books-lang')
+  if (saved === 'en' || saved === 'zh') lang.value = saved
+  isDark.value = document.documentElement.classList.contains('dark')
+})
+
+function toggleLang() {
+  lang.value = lang.value === 'zh' ? 'en' : 'zh'
+  localStorage.setItem('books-lang', lang.value)
+}
+
+function toggleTheme() {
+  isDark.value = !isDark.value
+  document.documentElement.classList.toggle('dark', isDark.value)
+  // 与 VitePress 主题开关共用同一个 key，进入阅读页后保持一致
+  localStorage.setItem('vitepress-theme-appearance', isDark.value ? 'dark' : 'light')
+}
 </script>
 
 <template>
-  <section class="shelf-wrap">
-    <header class="shelf-head">
-      <p class="shelf-kicker">STICKMAN CHARLES / BOOKS</p>
-      <h1 class="shelf-title">AI 时代的编程指南</h1>
-      <p class="shelf-tagline">你不需要成为程序员，但你需要看懂 AI 在做什么。五册阶梯 · 速查卡片 · 真实项目。</p>
+  <section class="os">
+    <h1 class="sr-only">AI 时代的编程指南 · Stickman Charles Books</h1>
+
+    <header class="bar">
+      <span class="mark">STICKMAN CHARLES BOOKS</span>
+      <div class="ctl">
+        <button class="ctl-btn" type="button" @click="toggleLang"
+                :aria-label="lang === 'zh' ? 'Switch to English' : '切换到中文'">{{ t.toLang }}</button>
+        <button class="ctl-btn" type="button" @click="toggleTheme"
+                :aria-label="isDark ? 'Light theme' : 'Dark theme'">◐</button>
+      </div>
     </header>
 
-    <div class="shelf" role="list" aria-label="书架">
-      <div v-for="b in books" :key="b.id" role="listitem" class="slot" :class="{ planned: b.status === 'planned' }">
-        <a
-          v-if="b.status === 'done'"
-          class="scene"
-          :href="b.readLink"
-          tabindex="-1"
-          aria-hidden="true"
-        >
-          <div class="book3d">
-            <div class="face front">
+    <div class="stage">
+      <div class="shelf" role="list" aria-label="Bookshelf">
+        <div v-for="b in shelf" :key="b.id" role="listitem" class="slot" :class="{ planned: b.status === 'planned' }">
+          <a
+            v-if="b.status === 'done'"
+            class="scene"
+            :href="b.readLink"
+            tabindex="-1"
+            aria-hidden="true"
+          >
+            <div class="book3d">
+              <div class="face front">
+                <span class="f-num">{{ b.id }}</span>
+                <span class="f-title">{{ b.title }}</span>
+                <span class="f-sub">{{ b.subtitle }}</span>
+                <span class="f-meta">{{ '★'.repeat(b.stars) }}&thinsp;·&thinsp;{{ b.chapters }} {{ t.ch }}</span>
+              </div>
+              <div class="face spine" aria-hidden="true"><span>{{ b.id }}　{{ b.title }}</span></div>
+              <div class="face edge" aria-hidden="true"></div>
+              <div class="face back" aria-hidden="true"></div>
+            </div>
+            <div class="shadow" aria-hidden="true"></div>
+          </a>
+
+          <div v-else class="scene scene-planned" role="img"
+               :aria-label="lang === 'zh' ? `第 ${b.id} 册《${b.title}》写作中，尚未出版` : `Volume ${b.id}, ${b.title}: in progress, not yet published`">
+            <div class="slot-empty">
               <span class="f-num">{{ b.id }}</span>
               <span class="f-title">{{ b.title }}</span>
               <span class="f-sub">{{ b.subtitle }}</span>
-              <span class="f-meta">{{ '★'.repeat(b.stars) }}&thinsp;·&thinsp;{{ b.chapters }} 章</span>
+              <span class="f-meta">{{ '★'.repeat(b.stars) }}&thinsp;·&thinsp;{{ b.chapters }} {{ t.ch }}</span>
+              <span class="slot-tag">{{ t.writing }}</span>
             </div>
-            <div class="face spine" aria-hidden="true"><span>{{ b.id }}　{{ b.title }}</span></div>
-            <div class="face edge" aria-hidden="true"></div>
-            <div class="face back" aria-hidden="true"></div>
           </div>
-          <div class="shadow" aria-hidden="true"></div>
-        </a>
 
-        <div v-else class="scene scene-planned" role="img" :aria-label="`第 ${b.id} 册《${b.title}》写作中，尚未出版`">
-          <div class="slot-empty">
-            <span class="f-num">{{ b.id }}</span>
-            <span class="f-title">{{ b.title }}</span>
-            <span class="f-sub">{{ b.subtitle }}</span>
-            <span class="f-meta">{{ '★'.repeat(b.stars) }}&thinsp;·&thinsp;规划 {{ b.chapters }} 章</span>
-            <span class="slot-tag">写作中</span>
-          </div>
-        </div>
-
-        <div class="slot-info">
-          <p class="blurb">{{ b.blurb }}</p>
-          <div class="actions">
-            <a v-if="b.readLink" class="btn btn-solid" :href="b.readLink" :aria-label="`在线阅读《${b.title}》`">在线阅读</a>
-            <a v-if="b.pdf" class="btn btn-ghost" :href="b.pdf" :aria-label="`下载《${b.title}》PDF`" download>下载 PDF</a>
+          <div class="slot-info">
+            <p class="blurb">{{ b.blurb }}</p>
+            <div class="actions">
+              <a v-if="b.readLink" class="btn btn-solid" :href="b.readLink"
+                 :aria-label="`${t.read}: ${b.title}`">{{ t.read }}</a>
+              <a v-if="b.pdf" class="btn btn-ghost" :href="b.pdf"
+                 :aria-label="`${t.pdf}: ${b.title}`" download>{{ t.pdf }}</a>
+            </div>
           </div>
         </div>
       </div>
@@ -56,22 +103,45 @@ import { books } from './books-data.js'
 </template>
 
 <style scoped>
-/* ── 布局 ── */
-.shelf-wrap { max-width: 1152px; margin: 0 auto; padding: 56px 24px 8px; }
-
-.shelf-head { text-align: center; margin-bottom: 48px; }
-.shelf-kicker {
-  font-family: var(--vp-font-family-mono);
-  font-size: 10px; letter-spacing: 0.22em; color: var(--vp-c-text-3);
-  margin: 0 0 14px;
+.sr-only {
+  position: absolute; width: 1px; height: 1px;
+  clip-path: inset(50%); overflow: hidden; white-space: nowrap;
 }
-.shelf-title { font-size: 40px; font-weight: 600; letter-spacing: -0.02em; line-height: 1.2; margin: 0 0 12px; color: var(--vp-c-text-1); }
-.shelf-tagline { font-size: 15px; font-weight: 300; color: var(--vp-c-text-2); margin: 0; }
 
-.shelf { display: flex; flex-wrap: wrap; justify-content: center; }
+/* ── 第一屏：只有书架和两个开关 ── */
+.os { min-height: 100vh; display: flex; flex-direction: column; }
+
+.bar {
+  position: absolute; top: 0; left: 0; right: 0;
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 22px 28px;
+  z-index: 5;
+}
+.mark {
+  font-family: var(--vp-font-family-mono);
+  font-size: 11px; font-weight: 600; letter-spacing: 0.22em;
+  color: var(--vp-c-text-1);
+}
+.ctl { display: flex; gap: 8px; }
+.ctl-btn {
+  font-family: var(--vp-font-family-mono);
+  font-size: 11px; letter-spacing: 0.1em;
+  color: var(--vp-c-text-2);
+  background: transparent;
+  border: 1px solid var(--vp-c-divider);
+  border-radius: 2px;
+  width: 34px; height: 26px;
+  cursor: pointer;
+  transition: color 0.2s ease, border-color 0.2s ease;
+}
+.ctl-btn:hover { color: var(--vp-c-text-1); border-color: var(--vp-c-border); }
+.ctl-btn:focus-visible { outline: 2px solid var(--vp-c-text-1); outline-offset: 2px; }
+
+.stage { flex: 1; display: flex; align-items: center; justify-content: center; padding: 72px 24px 24px; }
+.shelf { display: flex; flex-wrap: wrap; justify-content: center; max-width: 1152px; }
 .slot { width: 212px; padding: 0 6px; display: flex; flex-direction: column; }
 
-/* ── 书架板：每格底部一条线，同排连成搁板 ── */
+/* ── 书架板 ── */
 .scene {
   position: relative;
   height: 308px;
@@ -94,7 +164,7 @@ import { books } from './books-data.js'
   transform: rotateY(24deg);
   transition: transform 0.45s cubic-bezier(0.22, 1, 0.36, 1);
 }
-.scene:hover .book3d { transform: rotateY(9deg) translateY(-5px); }
+.slot:hover .book3d, .slot:focus-within .book3d { transform: rotateY(9deg) translateY(-5px); }
 
 .face { position: absolute; border: 1px solid var(--vp-c-border); background: var(--vp-c-bg-elv); }
 
@@ -114,7 +184,7 @@ import { books } from './books-data.js'
   border-bottom: 1px solid var(--vp-c-divider);
   padding-bottom: 10px; margin-bottom: 14px;
 }
-.f-title { font-size: 22px; font-weight: 600; letter-spacing: 0.02em; color: var(--vp-c-text-1); line-height: 1.3; }
+.f-title { font-size: 21px; font-weight: 600; letter-spacing: 0.02em; color: var(--vp-c-text-1); line-height: 1.3; }
 .f-sub { font-size: 12px; font-weight: 300; color: var(--vp-c-text-2); line-height: 1.6; margin-top: 8px; }
 .f-meta {
   margin-top: auto;
@@ -152,7 +222,7 @@ import { books } from './books-data.js'
   background: radial-gradient(ellipse at center, rgba(0, 0, 0, 0.28), transparent 68%);
   transition: width 0.45s ease, opacity 0.45s ease;
 }
-.scene:hover .shadow { width: 82%; opacity: 0.8; }
+.slot:hover .shadow { width: 82%; opacity: 0.8; }
 
 /* ── 第五册：未装订的稿纸，占位不可点 ── */
 .scene-planned { perspective: none; cursor: default; }
@@ -183,8 +253,14 @@ import { books } from './books-data.js'
   padding: 3px 6px;
 }
 
-/* ── 书下信息区 ── */
-.slot-info { padding: 14px 2px 34px; text-align: center; }
+/* ── 书下信息：默认隐身，悬停/键盘聚焦才浮现（保持第一屏干净） ── */
+.slot-info {
+  padding: 14px 2px 6px; text-align: center;
+  opacity: 0; transform: translateY(4px);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+.slot:hover .slot-info, .slot:focus-within .slot-info { opacity: 1; transform: none; }
+.slot.planned .slot-info .actions { display: none; }
 .blurb { font-size: 12px; font-weight: 300; line-height: 1.7; color: var(--vp-c-text-2); margin: 0 0 12px; min-height: 3.4em; }
 .actions { display: flex; gap: 8px; justify-content: center; }
 .btn {
@@ -200,21 +276,23 @@ import { books } from './books-data.js'
 .btn-solid:hover { background: var(--vp-button-brand-hover-bg); color: var(--vp-button-brand-hover-text); }
 .btn-ghost { color: var(--vp-c-text-1); background: transparent; }
 .btn-ghost:hover { border-color: var(--vp-c-text-1); }
-.btn:focus-visible, .scene:focus-visible {
+.btn:focus-visible {
   outline: 2px solid var(--vp-c-text-1);
   outline-offset: 2px;
 }
 
 /* ── 动效尊重：reduced motion 下全部静止 ── */
 @media (prefers-reduced-motion: reduce) {
-  .book3d, .shadow, .btn { transition: none; }
-  .scene:hover .book3d { transform: rotateY(24deg); }
-  .scene:hover .shadow { width: 72%; opacity: 1; }
+  .book3d, .shadow, .btn, .slot-info, .ctl-btn { transition: none; }
+  .slot:hover .book3d, .slot:focus-within .book3d { transform: rotateY(24deg); }
+  .slot:hover .shadow { width: 72%; opacity: 1; }
 }
 
-/* ── 移动端（<768px）：降级为平铺卡片，无 3D、无横向滚动 ── */
+/* ── 移动端（<768px）：降级为平铺卡片，无 3D、无横向滚动，信息常显 ── */
 @media (max-width: 767px) {
-  .shelf { flex-direction: column; align-items: stretch; }
+  .os { min-height: 0; }
+  .stage { padding: 84px 20px 16px; }
+  .shelf { flex-direction: column; align-items: stretch; width: 100%; }
   .slot { width: 100%; padding: 0; }
   .scene { height: auto; perspective: none; padding-bottom: 0; display: block; }
   .scene::after { display: none; }
@@ -224,8 +302,7 @@ import { books } from './books-data.js'
   .f-meta { margin-top: 14px; }
   .slot-empty { width: 100%; height: auto; }
   .slot-empty::before, .slot-empty::after { display: none; }
-  .slot-info { padding: 12px 2px 30px; }
+  .slot-info { opacity: 1; transform: none; padding: 12px 2px 30px; }
   .blurb { min-height: 0; }
-  .shelf-title { font-size: 30px; }
 }
 </style>

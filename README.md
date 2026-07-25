@@ -6,6 +6,6 @@ Stickman Charles 的书架——《AI 时代的编程指南》的官方站点。
 - 本地：`npm install && npm run docs:dev`
 - 构建：`npm run docs:build`（输出 `docs/.vitepress/dist`，构建会校验全部内链）
 - 部署：GitHub → Cloudflare Workers（static assets）→ 自定义域名 `books.stickmancharles.com`
+- 许可：正文与网站源码 CC BY-NC-ND 4.0（`LICENSE-CONTENT.md`），书中代码段 MIT（`LICENSE`），说明见站点 `/license`
 
 由 Charles Tao 与 Claude 协作完成。献给 Roy。
-# books.stickmancharles.com
