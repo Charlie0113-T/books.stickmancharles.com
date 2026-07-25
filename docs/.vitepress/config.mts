@@ -90,7 +90,7 @@ export default defineConfig({
     sidebarMenuLabel: '目录',
     returnToTopLabel: '回到顶部',
     footer: {
-      message: '由 Charles Tao 与 Claude 协作写成——这本身就是这套书讲的工作方式。',
+      message: '由 Charles Tao 与 Claude 协作写成——这本身就是这套书讲的工作方式。 · <a href="/license">许可</a>',
       copyright: '献给我的父亲 Roy：只要想学，最好的时间就是现在。'
     },
   },
