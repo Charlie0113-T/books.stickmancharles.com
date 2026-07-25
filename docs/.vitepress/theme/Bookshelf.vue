@@ -192,10 +192,12 @@ function toggleTheme() {
 .nav-logo-dim { color: var(--vp-c-text-3); font-weight: 400; }
 .nav-ctl { display: flex; align-items: center; }
 .lang-toggle {
+  height: 32px;                     /* 与主题钮同高 */
+  display: inline-flex; align-items: center;
   font-size: 11px; font-weight: 500; letter-spacing: 0.12em;
   color: var(--vp-c-text-2);
   background: none; border: 1px solid var(--vp-c-divider);
-  padding: 5px 12px; border-radius: 2px;
+  padding: 0 12px; border-radius: 2px;
   cursor: pointer; white-space: nowrap;
   transition: color 0.25s ease, border-color 0.25s ease;
 }

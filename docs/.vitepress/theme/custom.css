@@ -195,9 +195,12 @@ body::after {
 /* 内联搜索框：宽、常驻、带 ⌘K。顺序：导航链接 → 搜索 → EN → 主题 */
 .VPNavBarMenu { order: 5; }
 .VPNavBarSearch { order: 6; flex-grow: 0; padding-left: 28px; }
+/* 布局：图标 │ 占位文字（左对齐、可伸缩） │ ⌘K（靠右、不收缩）——三者互不重叠 */
 .DocSearch-Button {
+  display: flex;
+  align-items: center;
   width: clamp(160px, 16vw, 280px);
-  height: 34px;
+  height: 32px;
   border: 1px solid var(--vp-c-divider) !important;
   border-radius: var(--pos-radius) !important;
   background: var(--vp-c-bg-soft) !important;
@@ -206,10 +209,22 @@ body::after {
   transition: border-color 0.25s ease;
 }
 .DocSearch-Button:hover { border-color: var(--vp-c-border) !important; box-shadow: none !important; }
+.DocSearch-Button-Container {
+  display: flex;
+  align-items: center;
+  flex: 1;
+  min-width: 0;
+}
+.DocSearch-Search-Icon { flex: none; width: 14px; height: 14px; opacity: 0.7; }
 /* 占位符跟着界面语言走（原文本来自配置，用伪元素替换） */
 .DocSearch-Button-Placeholder {
   font-size: 0 !important;
   padding: 0 0 0 8px !important;
+  flex: 1;
+  min-width: 0;
+  text-align: left;
+  white-space: nowrap;
+  overflow: hidden;
 }
 .DocSearch-Button-Placeholder::after {
   content: '搜索这套书';
@@ -219,6 +234,7 @@ body::after {
   color: var(--vp-c-text-3);
 }
 .lang-en .DocSearch-Button-Placeholder::after { content: 'Search this series'; }
+.DocSearch-Button-Keys { flex: none; margin-left: 10px; display: flex; align-items: center; gap: 3px; }
 
 /* 中等宽度：导航挤不下时，搜索退化成图标按钮（点开仍是完整搜索），导航收紧 */
 @media (max-width: 1339px) {
@@ -247,12 +263,14 @@ body::after {
 .nav-lang {
   order: 8;
   margin-left: 16px;
+  height: 32px;                     /* 与主题钮同高 */
+  display: inline-flex; align-items: center;
   font-size: 11px; font-weight: 500; letter-spacing: 0.12em;
   color: var(--vp-c-text-2);
   background: none;
   border: 1px solid var(--vp-c-divider);
   border-radius: var(--pos-radius);
-  padding: 5px 12px;
+  padding: 0 12px;
   cursor: pointer;
   white-space: nowrap;
   transition: color 0.25s ease, border-color 0.25s ease;
@@ -260,6 +278,8 @@ body::after {
 .nav-lang:hover { color: var(--vp-c-text-1); border-color: var(--vp-c-border); }
 .nav-lang:focus-visible { outline: 2px solid var(--vp-c-text-1); outline-offset: 2px; }
 .VPNavBarAppearance { order: 9; padding-left: 10px !important; }
+/* VitePress 在主题开关左侧画了一条 1px 竖线，与这里的按钮组语言不符 */
+.VPNavBarAppearance::before { display: none !important; }
 .VPNavBarAppearance .VPSwitch {
   background-color: transparent !important;
   border: 1px solid var(--vp-c-divider);
