@@ -9,7 +9,7 @@ export const books = [
     status: 'done',
     chapters: 16,
     readLink: '/guide/01/',
-    pdf: null,
+    pdf: '/pdf/AI时代的编程指南-01-看懂地图-v1.0.pdf',
     blurb: '请求与响应、前后端、数据库、API、服务器、DNS——先把地图看熟。',
   },
   {
@@ -20,7 +20,7 @@ export const books = [
     status: 'done',
     chapters: 12,
     readLink: '/guide/02/',
-    pdf: null,
+    pdf: '/pdf/AI时代的编程指南-02-上手工具-v1.0.pdf',
     blurb: 'VS Code、Claude、命令行、Git 与 GitHub——从空文件夹到上线网址。',
   },
   {
@@ -31,7 +31,7 @@ export const books = [
     status: 'done',
     chapters: 10,
     readLink: '/guide/03/',
-    pdf: null,
+    pdf: '/pdf/AI时代的编程指南-03-读懂语言-v1.0.pdf',
     blurb: 'HTML、CSS、JS、TS、SQL、Markdown——目标不是会写，是读得懂、改得动。',
   },
   {
@@ -42,7 +42,7 @@ export const books = [
     status: 'done',
     chapters: 10,
     readLink: '/guide/04/',
-    pdf: null,
+    pdf: '/pdf/AI时代的编程指南-04-深入系统-v1.0.pdf',
     blurb: 'Cloudflare、裸服务器、数据库建模、API 设计、日志与成本——出事之前先知道。',
   },
   {

@@ -4,6 +4,7 @@
   "type": "module",
   "scripts": {
     "assemble": "node scripts/assemble.mjs",
+    "pdf": "node scripts/make-pdf.mjs",
     "docs:dev": "vitepress dev docs",
     "docs:build": "npm run assemble && vitepress build docs",
     "docs:preview": "vitepress preview docs"

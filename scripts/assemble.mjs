@@ -13,7 +13,7 @@ const ROOT = dirname(dirname(fileURLToPath(import.meta.url)))
 const BOOKS = join(ROOT, 'books')
 const GUIDE = join(ROOT, 'docs', 'guide')
 
-const VOLS = [
+export const VOLS = [
   {
     id: '01', file: 'AI时代的编程指南-01-看懂地图.md', short: '01 看懂地图', stars: '★',
     parts: [['地图：软件世界长什么样', 1, 6], ['工具：每天在用的东西', 7, 11], ['心法：和 AI 一起变强', 12, 16]],
@@ -45,7 +45,7 @@ const CH_RE = /^# 第\s*(\d+)\s*章\s*(.+)$/
 const PART_RE = /^# 第[一二三四五]部分/
 
 // 把 **关键领悟**：/ **试一试**：等单段标记转换成 VitePress 容器。
-function beats(text) {
+export function beats(text) {
   const out = []
   for (const line of text.split('\n')) {
     const m = line.trim().match(BEAT_RE)
@@ -171,4 +171,5 @@ function main() {
   console.log(`assembled: ${sidebar.length} sidebar groups, glossary sections: ${glossarySecs.length}`)
 }
 
-main()
+// 被 make-pdf.mjs 等脚本 import 时不执行；直接 node scripts/assemble.mjs 时执行。
+if (process.argv[1] === fileURLToPath(import.meta.url)) main()
