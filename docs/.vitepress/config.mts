@@ -71,6 +71,7 @@ export default defineConfig({
     ],
     sidebar: {
       '/start/': [{ text: '开始', items: [
+        { text: '这套书是怎么来的', link: '/start/origin' },
         { text: '为什么每个人都该学 AI 编程', link: '/start/why' },
         { text: '什么是 Vibe Coding', link: '/start/vibe-coding' },
         { text: '这个网站怎么用', link: '/start/how-to-use' },
