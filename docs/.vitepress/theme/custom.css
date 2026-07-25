@@ -131,6 +131,14 @@ body::after {
 .VPFeature { border: 1px solid var(--vp-c-divider); border-radius: var(--pos-radius); background: var(--vp-c-bg-soft); transition: border-color 0.25s ease, transform 0.25s ease; }
 .VPFeature:hover { border-color: var(--vp-c-border); transform: translateY(-3px); }
 
+/* ── 首页书架下方的"这套书是怎么来的" ── */
+.shelf-outro {
+  max-width: 688px;
+  margin: 0 auto;
+  padding: 8px 24px 96px;
+}
+.shelf-outro h2 { border-top: none; text-align: center; }
+
 /* 滚动条 */
 ::-webkit-scrollbar { width: 3px; height: 3px; }
 ::-webkit-scrollbar-track { background: transparent; }
