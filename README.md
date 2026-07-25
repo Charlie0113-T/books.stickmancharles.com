@@ -8,3 +8,4 @@ Stickman Charles 的书架——《AI 时代的编程指南》的官方站点。
 - 部署：GitHub → Cloudflare Workers（static assets）→ 自定义域名 `books.stickmancharles.com`
 
 由 Charles Tao 与 Claude 协作完成。献给 Roy。
+# books.stickmancharles.com
