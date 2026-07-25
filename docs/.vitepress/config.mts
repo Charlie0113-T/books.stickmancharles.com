@@ -43,16 +43,23 @@ const refSidebar = [
 export default defineConfig({
   lang: 'zh-CN',
   title: 'AI 时代的编程指南',
-  description: '你不需要成为程序员，但你需要看懂程序员的世界。五册阶梯 + 速查 + 真实项目。',
+  description: 'Stickman Charles 的书架。《AI 时代的编程指南》官方站点：五册阶梯 + 速查 + 真实项目。',
   cleanUrls: true,
   appearance: 'dark',
+  sitemap: { hostname: 'https://books.stickmancharles.com' },
   head: [
     ['link', { rel: 'preconnect', href: 'https://fonts.googleapis.com' }],
     ['link', { rel: 'preconnect', href: 'https://fonts.gstatic.com', crossorigin: '' }],
     ['link', { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Noto+Sans+SC:wght@300;400;500;700&display=swap' }],
+    ['meta', { property: 'og:type', content: 'website' }],
+    ['meta', { property: 'og:site_name', content: 'books.stickmancharles.com' }],
+    ['meta', { property: 'og:title', content: 'AI 时代的编程指南 · Stickman Charles 的书架' }],
+    ['meta', { property: 'og:description', content: '你不需要成为程序员，但你需要看懂程序员的世界。五册阶梯 + 速查 + 真实项目。' }],
+    ['meta', { property: 'og:url', content: 'https://books.stickmancharles.com/' }],
+    ['meta', { name: 'twitter:card', content: 'summary' }],
   ],
   themeConfig: {
-    siteTitle: 'CHARLES TAO / DOCS',
+    siteTitle: 'CHARLES TAO / BOOKS',
     nav: [
       { text: '开始', link: '/start/why' },
       { text: '指南', link: '/guide/01/' },
@@ -72,7 +79,7 @@ export default defineConfig({
       '/reference/': refSidebar,
       '/projects/': [{ text: '项目（只放真做过的）', items: [
         { text: '从零上线第一个网站', link: '/projects/first-website' },
-        { text: '这个 docs 站是怎么搭的', link: '/projects/how-this-site-was-built' },
+        { text: '这个书站是怎么搭的', link: '/projects/how-this-site-was-built' },
         { text: '解剖 EchoForge', link: '/projects/echoforge-anatomy' },
       ]}],
     },
