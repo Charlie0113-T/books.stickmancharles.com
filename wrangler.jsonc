@@ -1,0 +1,18 @@
+// Cloudflare Workers（static assets）配置。
+// 这是一个纯静态站：只有 assets，没有 Worker 脚本。静态请求免费。
+// 控制台里连接 GitHub 仓库后，Workers Builds 会读取这里的配置：
+//   Build command:  npm run docs:build
+//   Deploy command: npx wrangler deploy
+// 自定义域名 books.stickmancharles.com 在控制台的 Worker → Settings →
+// Domains & Routes 里绑定（域名已托管在 Cloudflare，不需要手动加 DNS 记录）。
+{
+  "name": "books-stickmancharles",
+  "compatibility_date": "2026-07-01",
+  "assets": {
+    "directory": "./docs/.vitepress/dist",
+    // VitePress cleanUrls: /guide/01/ch01 → ch01.html，默认 auto-trailing-slash 正确处理
+    "html_handling": "auto-trailing-slash",
+    // VitePress 会生成 404.html
+    "not_found_handling": "404-page"
+  }
+}
