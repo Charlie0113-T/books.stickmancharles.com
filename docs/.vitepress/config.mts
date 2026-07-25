@@ -88,16 +88,18 @@ export default defineConfig({
       ],
     })],
   ],
+  lastUpdated: true,
   themeConfig: {
-    siteTitle: 'STICKMAN CHARLES BOOKS',
+    siteTitle: 'STICKMAN CHARLES <span class="nav-dim">/ BOOKS</span>',
+    // 导航文案是 v-html 渲染的：两个 span 各存一种语言，由 <html>.lang-en 决定显示哪个
     nav: [
-      { text: '开始', link: '/start/why' },
-      { text: '指南', link: '/guide/01/' },
-      { text: '速查', link: '/reference/git' },
-      { text: '项目', link: '/projects/first-website' },
-      { text: '术语表', link: '/glossary' },
-      { text: '路线图', link: '/roadmap' },
-      { text: '主站', link: 'https://stickmancharles.com' },
+      { text: '<span class="i18n-zh">开始</span><span class="i18n-en">Start</span>', link: '/start/origin' },
+      { text: '<span class="i18n-zh">指南</span><span class="i18n-en">Guide</span>', link: '/guide/01/' },
+      { text: '<span class="i18n-zh">速查</span><span class="i18n-en">Reference</span>', link: '/reference/git' },
+      { text: '<span class="i18n-zh">项目</span><span class="i18n-en">Projects</span>', link: '/projects/first-website' },
+      { text: '<span class="i18n-zh">术语表</span><span class="i18n-en">Glossary</span>', link: '/glossary' },
+      { text: '<span class="i18n-zh">路线图</span><span class="i18n-en">Roadmap</span>', link: '/roadmap' },
+      { text: '<span class="i18n-zh">主站</span><span class="i18n-en">Main site</span>', link: 'https://stickmancharles.com' },
     ],
     sidebar: {
       '/start/': [{ text: '开始', items: [
@@ -115,14 +117,31 @@ export default defineConfig({
       ]}],
     },
     outline: { level: [2, 3], label: '本页目录' },
-    search: { provider: 'local', options: { detailedView: true } },
-    docFooter: { prev: '上一页', next: '下一页' },
+    search: {
+      provider: 'local',
+      options: {
+        detailedView: true,
+        translations: {
+          button: { buttonText: '搜索这套书', buttonAriaLabel: '搜索这套书' },
+          modal: {
+            noResultsText: '没有找到',
+            resetButtonTitle: '清除',
+            footer: { selectText: '选择', navigateText: '切换', closeText: '关闭' },
+          },
+        },
+      },
+    },
+    docFooter: { prev: '上一章', next: '下一章' },
     darkModeSwitchLabel: '主题',
     sidebarMenuLabel: '目录',
     returnToTopLabel: '回到顶部',
     footer: {
-      message: '由 Charles Tao 与 Claude 协作写成——这本身就是这套书讲的工作方式。 · <a href="/license">许可</a>',
-      copyright: '© 2026 Charles Tao · 献给我的父亲 Roy：只要想学，最好的时间就是现在。'
+      message: '<span class="i18n-zh">由 Charles Tao 与 Claude 协作写成——这本身就是这套书讲的工作方式。</span>' +
+               '<span class="i18n-en">Written by Charles Tao with Claude — which is itself the working method this series teaches.</span>' +
+               ' · <a href="/license"><span class="i18n-zh">许可</span><span class="i18n-en">License</span></a>',
+      copyright: '© 2026 Charles Tao · ' +
+                 '<span class="i18n-zh">献给我的父亲 Roy：只要想学，最好的时间就是现在。</span>' +
+                 '<span class="i18n-en">For my father Roy: if you want to learn, the best time is now.</span>'
     },
   },
 })

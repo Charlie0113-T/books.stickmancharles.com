@@ -1,17 +1,19 @@
 <script setup>
 import { ref, computed, onMounted, onUnmounted, nextTick } from 'vue'
 import { series } from './books-data.js'
+import { lang, initLang, toggleLang } from './lang.js'
 
-const lang = ref('zh')
 const isDark = ref(true)
 const active = ref(null)
 let lastTrigger = null
 
 const STR = {
   zh: { read: '在线阅读', pdf: '下载 PDF', writing: '写作中', ch: '章', vol: '第', volSuffix: '册',
-        next: '留给下一本书', toLang: 'EN', close: '关闭' },
+        next: '留给下一本书', toLang: 'EN', close: '关闭',
+        license: '许可', licenseMore: '详情 →' },
   en: { read: 'READ ONLINE', pdf: 'DOWNLOAD PDF', writing: 'WRITING', ch: 'CH', vol: 'VOLUME', volSuffix: '',
-        next: 'FOR THE NEXT BOOK', toLang: '中文', close: 'Close' },
+        next: 'FOR THE NEXT BOOK', toLang: '中文', close: 'Close',
+        license: 'LICENSE', licenseMore: 'Details →' },
 }
 const t = computed(() => STR[lang.value])
 const guide = series[0]
@@ -23,6 +25,7 @@ const stack = computed(() =>
     title: lang.value === 'zh' ? b.title_zh : b.title_en,
     subtitle: lang.value === 'zh' ? b.subtitle_zh : b.subtitle_en,
     blurb: lang.value === 'zh' ? b.blurb_zh : b.blurb_en,
+    license: lang.value === 'zh' ? b.license_zh : b.license_en,
   }))
 )
 const doneCount = guide.books.filter(b => b.status === 'done').length
@@ -50,8 +53,7 @@ function close() {
 function onKey(e) { if (e.key === 'Escape' && active.value) close() }
 
 onMounted(() => {
-  const saved = localStorage.getItem('books-lang')
-  if (saved === 'en' || saved === 'zh') lang.value = saved
+  initLang()
   isDark.value = document.documentElement.classList.contains('dark')
   window.addEventListener('keydown', onKey)
 })
@@ -60,10 +62,6 @@ onUnmounted(() => {
   document.body.style.overflow = ''
 })
 
-function toggleLang() {
-  lang.value = lang.value === 'zh' ? 'en' : 'zh'
-  localStorage.setItem('books-lang', lang.value)
-}
 function toggleTheme() {
   isDark.value = !isDark.value
   document.documentElement.classList.toggle('dark', isDark.value)
@@ -77,7 +75,7 @@ function toggleTheme() {
     <h1 class="sr-only">Stickman Charles Books — Stickman Charles 的书架</h1>
 
     <nav class="topnav">
-      <span class="nav-logo">STICKMAN CHARLES BOOKS</span>
+      <span class="nav-logo">STICKMAN CHARLES <span class="nav-logo-dim">/ BOOKS</span></span>
       <div class="nav-ctl">
         <button class="lang-toggle" type="button" @click="toggleLang"
                 :aria-label="lang === 'zh' ? 'Switch to English' : '切换到中文'">{{ t.toLang }}</button>
@@ -160,6 +158,11 @@ function toggleTheme() {
             <a v-if="active.readLink" class="btn btn-solid" :href="active.readLink">{{ t.read }}</a>
             <a v-if="active.pdf" class="btn btn-ghost" :href="active.pdf" download>{{ t.pdf }}</a>
           </div>
+          <p class="fi-license">
+            <span class="fi-license-k">{{ t.license }}</span>
+            <span>{{ active.license }}</span>
+            <a class="fi-license-more" href="/license">{{ t.licenseMore }}</a>
+          </p>
         </div>
       </div>
     </div>
@@ -185,7 +188,8 @@ function toggleTheme() {
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
 }
-.nav-logo { font-size: 13px; font-weight: 600; letter-spacing: 0.18em; color: var(--vp-c-text-1); }
+.nav-logo { font-size: 14px; font-weight: 600; letter-spacing: 0.18em; color: var(--vp-c-text-1); }
+.nav-logo-dim { color: var(--vp-c-text-3); font-weight: 400; }
 .nav-ctl { display: flex; align-items: center; }
 .lang-toggle {
   font-size: 11px; font-weight: 500; letter-spacing: 0.12em;
@@ -432,6 +436,23 @@ function toggleTheme() {
 .btn-ghost { color: var(--vp-c-text-1); background: transparent; }
 .btn-ghost:hover { border-color: var(--vp-c-text-1); }
 .btn:focus-visible { outline: 2px solid var(--vp-c-text-1); outline-offset: 2px; }
+
+.fi-license {
+  margin: 18px 0 0;
+  padding-top: 16px;
+  border-top: 1px solid var(--vp-c-divider);
+  display: flex; flex-wrap: wrap; align-items: baseline; gap: 8px;
+  font-size: 11px; font-weight: 300; line-height: 1.7;
+  color: var(--vp-c-text-3);
+}
+.fi-license-k {
+  font-family: var(--vp-font-family-mono);
+  font-size: 9px; letter-spacing: 0.2em; text-transform: uppercase;
+  color: var(--vp-c-text-3);
+}
+.fi-license-more { color: var(--vp-c-text-2); text-decoration: none; transition: color 0.2s ease; }
+.fi-license-more:hover { color: var(--vp-c-text-1); }
+.fi-license-more:focus-visible { outline: 2px solid var(--vp-c-text-1); outline-offset: 2px; }
 
 /* ── reduced motion：全部静止 ── */
 @media (prefers-reduced-motion: reduce) {

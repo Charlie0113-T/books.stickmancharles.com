@@ -1,14 +1,14 @@
 export default [
   {
-    "text": "00 总纲",
+    "text": "<span class=\"s-n\">00</span><span class=\"s-t\">总纲</span>",
     "link": "/guide/overview"
   },
   {
-    "text": "01 看懂地图 ★",
+    "text": "<span class=\"s-n\">01</span><span class=\"s-t\">看懂地图</span><span class=\"s-star\">★</span>",
     "collapsed": false,
     "items": [
       {
-        "text": "扉页 · 序",
+        "text": "<span class=\"s-n\">·</span><span class=\"s-t\">扉页 · 序</span>",
         "link": "/guide/01/"
       },
       {
@@ -16,27 +16,27 @@ export default [
         "collapsed": false,
         "items": [
           {
-            "text": "1. 当你按下回车",
+            "text": "<span class=\"s-n\">01</span><span class=\"s-t\">当你按下回车</span>",
             "link": "/guide/01/ch01"
           },
           {
-            "text": "2. 前端与后端",
+            "text": "<span class=\"s-n\">02</span><span class=\"s-t\">前端与后端</span>",
             "link": "/guide/01/ch02"
           },
           {
-            "text": "3. 数据库",
+            "text": "<span class=\"s-n\">03</span><span class=\"s-t\">数据库</span>",
             "link": "/guide/01/ch03"
           },
           {
-            "text": "4. API",
+            "text": "<span class=\"s-n\">04</span><span class=\"s-t\">API</span>",
             "link": "/guide/01/ch04"
           },
           {
-            "text": "5. 代码住在哪里",
+            "text": "<span class=\"s-n\">05</span><span class=\"s-t\">代码住在哪里</span>",
             "link": "/guide/01/ch05"
           },
           {
-            "text": "6. 域名与 DNS",
+            "text": "<span class=\"s-n\">06</span><span class=\"s-t\">域名与 DNS</span>",
             "link": "/guide/01/ch06"
           }
         ]
@@ -46,23 +46,23 @@ export default [
         "collapsed": false,
         "items": [
           {
-            "text": "7. 终端",
+            "text": "<span class=\"s-n\">07</span><span class=\"s-t\">终端</span>",
             "link": "/guide/01/ch07"
           },
           {
-            "text": "8. Git 与 GitHub",
+            "text": "<span class=\"s-n\">08</span><span class=\"s-t\">Git 与 GitHub</span>",
             "link": "/guide/01/ch08"
           },
           {
-            "text": "9. 秘密与配置",
+            "text": "<span class=\"s-n\">09</span><span class=\"s-t\">秘密与配置</span>",
             "link": "/guide/01/ch09"
           },
           {
-            "text": "10. 依赖",
+            "text": "<span class=\"s-n\">10</span><span class=\"s-t\">依赖</span>",
             "link": "/guide/01/ch10"
           },
           {
-            "text": "11. 部署",
+            "text": "<span class=\"s-n\">11</span><span class=\"s-t\">部署</span>",
             "link": "/guide/01/ch11"
           }
         ]
@@ -72,51 +72,51 @@ export default [
         "collapsed": false,
         "items": [
           {
-            "text": "12. AI 编程的真相",
+            "text": "<span class=\"s-n\">12</span><span class=\"s-t\">AI 编程的真相</span>",
             "link": "/guide/01/ch12"
           },
           {
-            "text": "13. 怎么提需求",
+            "text": "<span class=\"s-n\">13</span><span class=\"s-t\">怎么提需求</span>",
             "link": "/guide/01/ch13"
           },
           {
-            "text": "14. 验证与调试",
+            "text": "<span class=\"s-n\">14</span><span class=\"s-t\">验证与调试</span>",
             "link": "/guide/01/ch14"
           },
           {
-            "text": "15. 安全",
+            "text": "<span class=\"s-n\">15</span><span class=\"s-t\">安全</span>",
             "link": "/guide/01/ch15"
           },
           {
-            "text": "16. 持续变强",
+            "text": "<span class=\"s-n\">16</span><span class=\"s-t\">持续变强</span>",
             "link": "/guide/01/ch16"
           }
         ]
       },
       {
-        "text": "写在最后：给爸爸",
+        "text": "<span class=\"s-n\">·</span><span class=\"s-t\">写在最后：给爸爸</span>",
         "link": "/guide/01/letter"
       },
       {
-        "text": "附录 A · 术语表",
+        "text": "<span class=\"s-n\">·</span><span class=\"s-t\">附录 A · 术语表</span>",
         "link": "/guide/01/appendix-a"
       },
       {
-        "text": "附录 B · 解剖我们自己的项目",
+        "text": "<span class=\"s-n\">·</span><span class=\"s-t\">附录 B · 解剖我们自己的项目</span>",
         "link": "/guide/01/appendix-b"
       },
       {
-        "text": "附录 C · 红线卡",
+        "text": "<span class=\"s-n\">·</span><span class=\"s-t\">附录 C · 红线卡</span>",
         "link": "/guide/01/appendix-c"
       }
     ]
   },
   {
-    "text": "02 上手工具 ★★",
+    "text": "<span class=\"s-n\">02</span><span class=\"s-t\">上手工具</span><span class=\"s-star\">★★</span>",
     "collapsed": true,
     "items": [
       {
-        "text": "扉页 · 序",
+        "text": "<span class=\"s-n\">·</span><span class=\"s-t\">扉页 · 序</span>",
         "link": "/guide/02/"
       },
       {
@@ -124,67 +124,67 @@ export default [
         "collapsed": false,
         "items": [
           {
-            "text": "1. 你的驾驶舱",
+            "text": "<span class=\"s-n\">01</span><span class=\"s-t\">你的驾驶舱</span>",
             "link": "/guide/02/ch01"
           },
           {
-            "text": "2. 贴身搭档",
+            "text": "<span class=\"s-n\">02</span><span class=\"s-t\">贴身搭档</span>",
             "link": "/guide/02/ch02"
           },
           {
-            "text": "3. 云端分身",
+            "text": "<span class=\"s-n\">03</span><span class=\"s-t\">云端分身</span>",
             "link": "/guide/02/ch03"
           },
           {
-            "text": "4. 命令行生存包",
+            "text": "<span class=\"s-n\">04</span><span class=\"s-t\">命令行生存包</span>",
             "link": "/guide/02/ch04"
           },
           {
-            "text": "5. Git 核心循环",
+            "text": "<span class=\"s-n\">05</span><span class=\"s-t\">Git 核心循环</span>",
             "link": "/guide/02/ch05"
           },
           {
-            "text": "6. GitHub 实战",
+            "text": "<span class=\"s-n\">06</span><span class=\"s-t\">GitHub 实战</span>",
             "link": "/guide/02/ch06"
           },
           {
-            "text": "7. 分支与 PR",
+            "text": "<span class=\"s-n\">07</span><span class=\"s-t\">分支与 PR</span>",
             "link": "/guide/02/ch07"
           },
           {
-            "text": "8. 时光倒流",
+            "text": "<span class=\"s-n\">08</span><span class=\"s-t\">时光倒流</span>",
             "link": "/guide/02/ch08"
           },
           {
-            "text": "9. 冲突不可怕",
+            "text": "<span class=\"s-n\">09</span><span class=\"s-t\">冲突不可怕</span>",
             "link": "/guide/02/ch09"
           },
           {
-            "text": "10. 认识一个仓库",
+            "text": "<span class=\"s-n\">10</span><span class=\"s-t\">认识一个仓库</span>",
             "link": "/guide/02/ch10"
           },
           {
-            "text": "11. 给 AI 立规矩",
+            "text": "<span class=\"s-n\">11</span><span class=\"s-t\">给 AI 立规矩</span>",
             "link": "/guide/02/ch11"
           },
           {
-            "text": "12. 综合演练",
+            "text": "<span class=\"s-n\">12</span><span class=\"s-t\">综合演练</span>",
             "link": "/guide/02/ch12"
           }
         ]
       },
       {
-        "text": "附：本册新词",
+        "text": "<span class=\"s-n\">·</span><span class=\"s-t\">附：本册新词</span>",
         "link": "/guide/02/terms"
       }
     ]
   },
   {
-    "text": "03 读懂语言 ★★★",
+    "text": "<span class=\"s-n\">03</span><span class=\"s-t\">读懂语言</span><span class=\"s-star\">★★★</span>",
     "collapsed": true,
     "items": [
       {
-        "text": "扉页 · 序",
+        "text": "<span class=\"s-n\">·</span><span class=\"s-t\">扉页 · 序</span>",
         "link": "/guide/03/"
       },
       {
@@ -192,59 +192,59 @@ export default [
         "collapsed": false,
         "items": [
           {
-            "text": "1. 总论",
+            "text": "<span class=\"s-n\">01</span><span class=\"s-t\">总论</span>",
             "link": "/guide/03/ch01"
           },
           {
-            "text": "2. HTML",
+            "text": "<span class=\"s-n\">02</span><span class=\"s-t\">HTML</span>",
             "link": "/guide/03/ch02"
           },
           {
-            "text": "3. CSS",
+            "text": "<span class=\"s-n\">03</span><span class=\"s-t\">CSS</span>",
             "link": "/guide/03/ch03"
           },
           {
-            "text": "4. JavaScript",
+            "text": "<span class=\"s-n\">04</span><span class=\"s-t\">JavaScript</span>",
             "link": "/guide/03/ch04"
           },
           {
-            "text": "5. TypeScript",
+            "text": "<span class=\"s-n\">05</span><span class=\"s-t\">TypeScript</span>",
             "link": "/guide/03/ch05"
           },
           {
-            "text": "6. JSON 与配置文件家族",
+            "text": "<span class=\"s-n\">06</span><span class=\"s-t\">JSON 与配置文件家族</span>",
             "link": "/guide/03/ch06"
           },
           {
-            "text": "7. Markdown 与 MDX",
+            "text": "<span class=\"s-n\">07</span><span class=\"s-t\">Markdown 与 MDX</span>",
             "link": "/guide/03/ch07"
           },
           {
-            "text": "8. SQL 再进一步",
+            "text": "<span class=\"s-n\">08</span><span class=\"s-t\">SQL 再进一步</span>",
             "link": "/guide/03/ch08"
           },
           {
-            "text": "9. 我们栈里的其他面孔",
+            "text": "<span class=\"s-n\">09</span><span class=\"s-t\">我们栈里的其他面孔</span>",
             "link": "/guide/03/ch09"
           },
           {
-            "text": "10. 实战",
+            "text": "<span class=\"s-n\">10</span><span class=\"s-t\">实战</span>",
             "link": "/guide/03/ch10"
           }
         ]
       },
       {
-        "text": "附：本册新词",
+        "text": "<span class=\"s-n\">·</span><span class=\"s-t\">附：本册新词</span>",
         "link": "/guide/03/terms"
       }
     ]
   },
   {
-    "text": "04 深入系统 ★★★★",
+    "text": "<span class=\"s-n\">04</span><span class=\"s-t\">深入系统</span><span class=\"s-star\">★★★★</span>",
     "collapsed": true,
     "items": [
       {
-        "text": "扉页 · 序",
+        "text": "<span class=\"s-n\">·</span><span class=\"s-t\">扉页 · 序</span>",
         "link": "/guide/04/"
       },
       {
@@ -252,55 +252,55 @@ export default [
         "collapsed": false,
         "items": [
           {
-            "text": "1. Cloudflare 全解",
+            "text": "<span class=\"s-n\">01</span><span class=\"s-t\">Cloudflare 全解</span>",
             "link": "/guide/04/ch01"
           },
           {
-            "text": "2. 登上我们的 DO",
+            "text": "<span class=\"s-n\">02</span><span class=\"s-t\">登上我们的 DO</span>",
             "link": "/guide/04/ch02"
           },
           {
-            "text": "3. 让程序永远醒着",
+            "text": "<span class=\"s-n\">03</span><span class=\"s-t\">让程序永远醒着</span>",
             "link": "/guide/04/ch03"
           },
           {
-            "text": "4. 端口与反向代理",
+            "text": "<span class=\"s-n\">04</span><span class=\"s-t\">端口与反向代理</span>",
             "link": "/guide/04/ch04"
           },
           {
-            "text": "5. 把表设计好",
+            "text": "<span class=\"s-n\">05</span><span class=\"s-t\">把表设计好</span>",
             "link": "/guide/04/ch05"
           },
           {
-            "text": "6. RLS 策略实战",
+            "text": "<span class=\"s-n\">06</span><span class=\"s-t\">RLS 策略实战</span>",
             "link": "/guide/04/ch06"
           },
           {
-            "text": "7. 自己开窗口",
+            "text": "<span class=\"s-n\">07</span><span class=\"s-t\">自己开窗口</span>",
             "link": "/guide/04/ch07"
           },
           {
-            "text": "8. 缓存与性能",
+            "text": "<span class=\"s-n\">08</span><span class=\"s-t\">缓存与性能</span>",
             "link": "/guide/04/ch08"
           },
           {
-            "text": "9. 日志、监控与告警",
+            "text": "<span class=\"s-n\">09</span><span class=\"s-t\">日志、监控与告警</span>",
             "link": "/guide/04/ch09"
           },
           {
-            "text": "10. 云账单怎么读",
+            "text": "<span class=\"s-n\">10</span><span class=\"s-t\">云账单怎么读</span>",
             "link": "/guide/04/ch10"
           }
         ]
       },
       {
-        "text": "附：本册新词",
+        "text": "<span class=\"s-n\">·</span><span class=\"s-t\">附：本册新词</span>",
         "link": "/guide/04/terms"
       }
     ]
   },
   {
-    "text": "05 AI 工程心法（规划中）",
+    "text": "<span class=\"s-n\">05</span><span class=\"s-t\">AI 工程心法（规划中）</span>",
     "link": "/roadmap"
   }
 ]

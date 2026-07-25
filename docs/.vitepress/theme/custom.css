@@ -132,48 +132,334 @@ body::after {
 .VPFeature { border: 1px solid var(--vp-c-divider); border-radius: var(--pos-radius); background: var(--vp-c-bg-soft); transition: border-color 0.25s ease, transform 0.25s ease; }
 .VPFeature:hover { border-color: var(--vp-c-border); transform: translateY(-3px); }
 
-/* ═══ 阅读页：向主站风格看齐（DESIGN.md §3） ═══ */
+/* ═══════════════════════════════════════════════════════════
+   阅读页 · Personal OS（DESIGN.md §3）
+   ═══════════════════════════════════════════════════════════ */
 
-/* 导航条：blur 16 + 细下边（主站 .nav 同款） */
+/* ── 界面语言开关：.lang-en 挂在 <html> 上（theme/lang.js） ── */
+.i18n-en { display: none; }
+.lang-en .i18n-zh { display: none; }
+.lang-en .i18n-en { display: inline; }
+
+/* ── 导航条 ── */
 .VPNav, .VPNavBar {
-  background: color-mix(in srgb, var(--vp-c-bg) 78%, transparent) !important;
+  background: color-mix(in srgb, var(--vp-c-bg) 80%, transparent) !important;
   -webkit-backdrop-filter: blur(16px);
   backdrop-filter: blur(16px);
 }
-.VPNavBar { border-bottom: 1px solid var(--vp-c-divider) !important; }
-.VPNavBar .divider { display: none; }
+.VPNavBar, .VPNavBar.has-sidebar .curtain { border-bottom: 1px solid var(--vp-c-divider); }
+.VPNavBar .divider, .VPNavBar.has-sidebar .divider { display: none; }
+/* 导航横贯整屏（主站同款），左右留主站的 --pad 间距 */
+.VPNavBar .container, .VPNavBar.has-sidebar .container {
+  max-width: none;
+  padding: 0 clamp(24px, 5vw, 64px);
+}
+.VPNavBar .title { border-bottom: none !important; }
 
-/* 侧边栏：黑底、等宽分组标签、白色竖线选中态 */
-.VPSidebar { background: var(--vp-c-bg) !important; border-right: 1px solid var(--vp-c-divider); }
-.VPSidebarItem.level-0 > .item > .text {
-  font-family: var(--vp-font-family-mono);
-  font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase;
+/* VitePress 默认把站名绝对定位、宽度锁成侧边栏宽度，导航内容则从那个宽度处起步。
+   站名比侧边栏宽时会被导航压住，窄屏还会把右侧按钮挤出视口。
+   这里让站名回到文档流、宽度随内容，导航靠右、中间自适应。 */
+.VPNavBarTitle, .VPNavBarTitle.has-sidebar { width: auto !important; flex-shrink: 0; }
+@media (min-width: 960px) {
+  .VPNavBar.has-sidebar .title {
+    position: static !important;
+    width: auto !important;
+    padding: 0 !important;
+  }
+  .VPNavBar.has-sidebar .content { padding-left: 32px !important; }
+}
+@media (min-width: 1440px) {
+  .VPNavBar.has-sidebar .title { width: auto !important; padding-left: 0 !important; }
+  .VPNavBar.has-sidebar .content { padding-left: 32px !important; padding-right: 0 !important; }
+}
+.VPNavBar .content-body { justify-content: flex-end; }
+.VPNavBarTitle .title {
+  font-size: 14px !important;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  color: var(--vp-c-text-1);
+  white-space: nowrap;
+}
+.nav-dim { color: var(--vp-c-text-3); font-weight: 400; }
+
+.VPNavBarMenuLink {
+  font-size: 12px !important;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--vp-c-text-2) !important;
+  font-weight: 400 !important;
+}
+.VPNavBarMenuLink:hover, .VPNavBarMenuLink.active { color: var(--vp-c-text-1) !important; }
+.VPNavBarMenu .VPNavBarMenuLink::after { display: none; }
+
+/* 内联搜索框：宽、常驻、带 ⌘K。顺序：导航链接 → 搜索 → EN → 主题 */
+.VPNavBarMenu { order: 5; }
+.VPNavBarSearch { order: 6; flex-grow: 0; padding-left: 28px; }
+.DocSearch-Button {
+  width: clamp(160px, 16vw, 280px);
+  height: 34px;
+  border: 1px solid var(--vp-c-divider) !important;
+  border-radius: var(--pos-radius) !important;
+  background: var(--vp-c-bg-soft) !important;
+  padding: 0 8px 0 10px;
+  margin: 0;
+  transition: border-color 0.25s ease;
+}
+.DocSearch-Button:hover { border-color: var(--vp-c-border) !important; box-shadow: none !important; }
+/* 占位符跟着界面语言走（原文本来自配置，用伪元素替换） */
+.DocSearch-Button-Placeholder {
+  font-size: 0 !important;
+  padding: 0 0 0 8px !important;
+}
+.DocSearch-Button-Placeholder::after {
+  content: '搜索这套书';
+  font-size: 12px;
+  font-weight: 300;
+  letter-spacing: 0.04em;
+  color: var(--vp-c-text-3);
+}
+.lang-en .DocSearch-Button-Placeholder::after { content: 'Search this series'; }
+
+/* 中等宽度：导航挤不下时，搜索退化成图标按钮（点开仍是完整搜索），导航收紧 */
+@media (max-width: 1339px) {
+  .DocSearch-Button { width: 40px; padding: 0; justify-content: center; }
+  .DocSearch-Button-Placeholder, .DocSearch-Button-Keys { display: none !important; }
+  .VPNavBarSearch { padding-left: 12px; }
+  .VPNavBarMenuLink { padding: 0 8px !important; font-size: 11px !important; }
+  .VPNavBarTitle .title { font-size: 12px !important; letter-spacing: 0.14em; }
+  .VPNavBar.has-sidebar .content { padding-left: 16px !important; }
+  .nav-lang { margin-left: 10px; padding: 5px 9px; }
+  .VPNavBarAppearance { padding-left: 6px !important; }
+}
+.DocSearch-Button-Keys { min-width: auto; }
+.DocSearch-Button-Key {
+  background: transparent !important;
+  border: 1px solid var(--vp-c-divider) !important;
+  box-shadow: none !important;
+  border-radius: var(--pos-radius) !important;
+  color: var(--vp-c-text-3) !important;
+  font-size: 10px !important;
+  padding-bottom: 0 !important;
+}
+
+/* EN 切换（Layout.vue 注入）+ 主题按钮：主站同款药丸 / 方钮，顺序 EN → 主题 */
+.VPNavBar .content-body { gap: 0; }
+.nav-lang {
+  order: 8;
+  margin-left: 16px;
+  font-size: 11px; font-weight: 500; letter-spacing: 0.12em;
   color: var(--vp-c-text-2);
-}
-.VPSidebarItem.level-1 .text, .VPSidebarItem.level-2 .text { font-size: 13px; font-weight: 300; }
-.VPSidebarItem .item { border-left: 1px solid transparent; }
-.VPSidebarItem.is-active > .item {
-  border-left: 2px solid var(--vp-c-text-1);
-  padding-left: 6px;
-}
-.VPSidebarItem.is-active > .item > .link > .text { color: var(--vp-c-text-1); font-weight: 500; }
-
-/* 上一页/下一页：玻璃卡 + hover 升级（主站 module-card 语言） */
-.vp-doc .pager-link {
+  background: none;
   border: 1px solid var(--vp-c-divider);
   border-radius: var(--pos-radius);
-  background: var(--vp-c-bg-soft);
-  transition: background 0.25s ease, border-color 0.25s ease;
+  padding: 5px 12px;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: color 0.25s ease, border-color 0.25s ease;
 }
-.vp-doc .pager-link:hover { border-color: var(--vp-c-border); background: var(--vp-c-brand-soft); }
-.vp-doc .pager-link .desc {
+.nav-lang:hover { color: var(--vp-c-text-1); border-color: var(--vp-c-border); }
+.nav-lang:focus-visible { outline: 2px solid var(--vp-c-text-1); outline-offset: 2px; }
+.VPNavBarAppearance { order: 9; padding-left: 10px !important; }
+.VPNavBarAppearance .VPSwitch {
+  background-color: transparent !important;
+  border: 1px solid var(--vp-c-divider);
+  border-radius: var(--pos-radius) !important;
+  width: 32px; height: 32px;
+}
+.VPNavBarAppearance .VPSwitch .check {
+  background: transparent !important;
+  box-shadow: none !important;
+  border-radius: 0 !important;
+  width: 30px; height: 30px;
+  transform: none !important;
+  top: 0; left: 0;
+}
+.VPNavBarAppearance .VPSwitch .icon, .VPNavBarAppearance .VPSwitch .icon svg {
+  color: var(--vp-c-text-2);
+  opacity: 1 !important;
+}
+.VPNavBarAppearance .VPSwitch:hover { border-color: var(--vp-c-border); }
+.VPNavBarAppearance .VPSwitch:hover .icon svg { color: var(--vp-c-text-1); }
+.VPNavBarSocialLinks { display: none; }
+/* <1280px 时 VitePress 把主题开关收进 ••• 菜单——保留它，否则窄屏无法切主题 */
+.VPNavBarExtra .trans-title, .VPNavBarExtra .item.appearance .label {
+  font-family: var(--vp-font-family-mono);
+  font-size: 11px; letter-spacing: 0.1em; color: var(--vp-c-text-2);
+}
+.VPMenu { border: 1px solid var(--vp-c-divider); border-radius: var(--pos-radius); background: var(--vp-c-bg-elv); }
+
+/* 更新时间已经在右侧元信息里，正文底部不再重复 */
+.VPLastUpdated, .VPDocFooter .VPLastUpdated { display: none !important; }
+
+/* ── 侧边栏：等宽序号 + 竖导轨 ── */
+.VPSidebar {
+  background: var(--vp-c-bg) !important;
+  border-right: 1px solid var(--vp-c-divider);
+  padding-top: 24px !important;
+}
+.VPSidebarItem.level-0 { padding-bottom: 20px; }
+.VPSidebarItem .text { display: flex; align-items: baseline; gap: 12px; width: 100%; }
+.s-n {
+  flex: none;
+  width: 18px;
+  font-family: var(--vp-font-family-mono);
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  color: var(--vp-c-text-3);
+  text-align: right;
+}
+.s-t { flex: 1; min-width: 0; }
+.s-star {
+  flex: none;
+  font-size: 9px;
+  letter-spacing: 0.1em;
+  color: var(--vp-c-text-3);
+}
+
+/* 册标题 */
+.VPSidebarItem.level-0 > .item > .text .s-t {
+  font-size: 14px; font-weight: 600; letter-spacing: 0.04em;
+  color: var(--vp-c-text-1);
+}
+/* 部标题：安静的等宽小标签 */
+.VPSidebarItem.level-1 > .item > .text .s-t,
+.VPSidebarItem.level-1 > .item > .text:not(:has(.s-t)) {
   font-family: var(--vp-font-family-mono);
   font-size: 10px; letter-spacing: 0.16em; text-transform: uppercase;
   color: var(--vp-c-text-3);
 }
-.vp-doc .pager-link .title { font-weight: 500; }
+/* 章节条目 */
+.VPSidebarItem.level-2 .link, .VPSidebarItem.level-1 > .item > .link {
+  padding: 3px 0;
+}
+.VPSidebarItem.level-2 .text .s-t,
+.VPSidebarItem.level-1 > .item > .link .text .s-t {
+  font-size: 13px; font-weight: 300; color: var(--vp-c-text-2);
+  transition: color 0.2s ease;
+}
+.VPSidebarItem.level-2 .link:hover .s-t { color: var(--vp-c-text-1); }
 
-/* 表格与代码：1px 细边 */
+/* 章节列表的竖导轨 + 当前章节的白色段 */
+.VPSidebarItem.level-1 > .items, .VPSidebarItem.level-0 > .items {
+  border-left: 1px solid var(--vp-c-divider);
+  padding-left: 14px;
+  margin-left: 6px;
+}
+.VPSidebarItem.level-2.is-link > .item { position: relative; }
+.VPSidebarItem.level-2.is-active > .item::before {
+  content: '';
+  position: absolute;
+  left: -15px; top: 2px; bottom: 2px;
+  width: 1px;
+  background: var(--vp-c-text-1);
+}
+.VPSidebarItem.is-active > .item .s-t { color: var(--vp-c-text-1) !important; font-weight: 500; }
+.VPSidebarItem.is-active > .item .s-n { color: var(--vp-c-text-2); }
+.VPSidebarItem .indicator { display: none !important; }
+
+/* ── 正文：签名卡片（竖排标签 + 分隔线） ── */
+.custom-block {
+  position: relative;
+  border: 1px solid var(--vp-c-divider);
+  border-radius: var(--pos-radius);
+  background: var(--vp-c-bg-soft);
+  padding: 22px 26px 22px 74px;
+  margin: 28px 0;
+  transition: border-color 0.25s ease;
+}
+.custom-block:hover { border-color: var(--vp-c-border); }
+.custom-block .custom-block-title {
+  position: absolute;
+  left: 0; top: 0; bottom: 0;
+  width: 52px;
+  margin: 0;
+  display: flex; align-items: center; justify-content: center;
+  writing-mode: vertical-rl;
+  border-right: 1px solid var(--vp-c-divider);
+  font-family: var(--vp-font-family-mono);
+  font-size: 10px;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  color: var(--vp-c-text-3);
+}
+.custom-block.info { border-left: 2px solid var(--vp-c-text-1); }
+.custom-block.warning { border-left: 2px dashed var(--vp-c-border); }
+.custom-block.tip { border-left: 2px solid var(--vp-c-divider); }
+.custom-block p { color: var(--vp-c-text-2); margin: 0; }
+.custom-block p + p { margin-top: 10px; }
+.custom-block p strong, .custom-block p code { color: var(--vp-c-text-1); }
+.custom-block code {
+  border: 1px solid var(--vp-c-divider);
+  border-radius: var(--pos-radius);
+  background: var(--vp-code-bg);
+  font-size: 0.88em;
+  padding: 2px 7px;
+}
+
+/* ── 章节翻页：两格共享中缝 ── */
+.VPDocFooter .prev-next { border-top: 1px solid var(--vp-c-divider); padding-top: 28px; }
+.VPDocFooter .pager { gap: 0 !important; }
+.pager-link {
+  border: 1px solid var(--vp-c-divider) !important;
+  border-radius: 0 !important;
+  background: transparent !important;
+  padding: 22px 24px !important;
+  min-height: 104px;
+  display: flex; flex-direction: column; justify-content: center;
+  transition: background 0.25s ease, border-color 0.25s ease;
+}
+.pager-link:hover { background: var(--vp-c-bg-soft) !important; border-color: var(--vp-c-border) !important; }
+.pager-link.next { border-left: none !important; }
+.pager-link .desc {
+  font-family: var(--vp-font-family-mono);
+  font-size: 10px !important;
+  letter-spacing: 0.2em;
+  color: var(--vp-c-text-3) !important;
+  margin-bottom: 12px;
+}
+.pager-link.prev .desc::before { content: '← '; }
+.pager-link.next .desc::after { content: ' →'; }
+.pager-link .title {
+  font-size: 17px !important;
+  font-weight: 500 !important;
+  color: var(--vp-c-text-1) !important;
+}
+/* 翻页标题复用的是侧边栏文案（含序号 span）——这里只留章节名 */
+.pager-link .title .s-n { display: none; }
+.pager-link .title .text, .pager-link .title .s-t { display: inline; }
+
+/* ── 右侧：本页目录 + 章节元信息 ── */
+.VPDocAsideOutline .outline-title {
+  font-family: var(--vp-font-family-mono);
+  font-size: 10px !important;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--vp-c-text-3);
+}
+.VPDocAsideOutline .outline-link {
+  font-size: 12px; font-weight: 300;
+  color: var(--vp-c-text-3);
+  transition: color 0.2s ease;
+}
+.VPDocAsideOutline .outline-link:hover, .VPDocAsideOutline .outline-link.active { color: var(--vp-c-text-1); }
+.VPDocAsideOutline .outline-marker { background: var(--vp-c-text-1) !important; width: 1px !important; }
+
+.ch-meta {
+  margin-top: 28px;
+  padding-top: 22px;
+  border-top: 1px solid var(--vp-c-divider);
+  display: flex; flex-direction: column; gap: 10px;
+}
+.cm-row { display: flex; align-items: baseline; gap: 12px; }
+.cm-k {
+  font-family: var(--vp-font-family-mono);
+  font-size: 10px; letter-spacing: 0.16em; text-transform: uppercase;
+  color: var(--vp-c-text-3);
+  min-width: 34px;
+}
+.cm-v { font-size: 12px; font-weight: 300; color: var(--vp-c-text-2); letter-spacing: 0.04em; }
+
+/* ── 表格 / 代码 / 链接 ── */
 .vp-doc table { border-collapse: collapse; }
 .vp-doc th, .vp-doc td { border: 1px solid var(--vp-c-divider); }
 .vp-doc th {
@@ -182,8 +468,11 @@ body::after {
   color: var(--vp-c-text-2); background: var(--vp-c-bg-soft);
 }
 .vp-doc div[class*='language-'] { border: 1px solid var(--vp-c-divider); }
-
-/* 正文链接：主站式下边线，不变色 */
+.vp-doc :not(pre) > code {
+  border: 1px solid var(--vp-c-divider);
+  border-radius: var(--pos-radius);
+  font-size: 0.86em;
+}
 .vp-doc a:not(.pager-link) {
   text-decoration: none;
   border-bottom: 1px solid var(--vp-c-border);
@@ -191,18 +480,17 @@ body::after {
 }
 .vp-doc a:not(.pager-link):hover { border-bottom-color: var(--vp-c-text-1); }
 
-/* 搜索按钮与弹层 */
-.DocSearch-Button, .VPNavBarSearchButton {
-  border: 1px solid var(--vp-c-divider) !important;
-  background: transparent !important;
+/* ── 页脚：有侧边栏的页面也要显示版权 ── */
+.VPFooter, .VPFooter.has-sidebar {
+  display: block;
+  border-top: 1px solid var(--vp-c-divider) !important;
+  background: var(--vp-c-bg) !important;
+  text-align: center;
 }
-
-/* 大纲当前项 */
-.VPDocAsideOutline .outline-marker { background: var(--vp-c-text-1); width: 2px; }
-
-/* 页脚 */
-.VPFooter { border-top: 1px solid var(--vp-c-divider) !important; background: var(--vp-c-bg) !important; }
-.VPFooter .message, .VPFooter .copyright { font-size: 12px; font-weight: 300; color: var(--vp-c-text-3); }
+.VPFooter .message, .VPFooter .copyright {
+  font-size: 12px; font-weight: 300; line-height: 1.9;
+  color: var(--vp-c-text-3);
+}
 
 /* 滚动条 */
 ::-webkit-scrollbar { width: 3px; height: 3px; }

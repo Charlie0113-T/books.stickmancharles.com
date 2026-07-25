@@ -61,10 +61,43 @@ export function beats(text) {
   return out.join('\n')
 }
 
+// CommonMark 的定界符规则：右侧 ** 前面是标点、后面又紧跟汉字时无法闭合，
+// 于是"**第一步，把需求说清。**用"这类写法会把星号原样漏在页面上（书里有 68 处）。
+// 这里在生成阶段把单行、不含嵌套星号的 **…** 直接转成 <strong>，绕开该规则——
+// 只动渲染，不动书稿。围栏代码块与行内代码原样跳过。
+export function fixBold(text) {
+  // 先把围栏代码块和行内代码挖成占位符（粗体里也可能嵌着行内代码，
+  // 所以必须先挖空再整体匹配，不能按代码切段——那样会把一对 ** 劈开）
+  const vault = []
+  const stash = s => `\u0000${vault.push(s) - 1}\u0000`
+  let t = text
+    .replace(/```[\s\S]*?```/g, stash)
+    .replace(/`[^`\n]*`/g, stash)
+  t = t.replace(/\*\*([^*\n]+)\*\*/g, '<strong>$1</strong>')
+  return t.replace(/\u0000(\d+)\u0000/g, (_, i) => vault[Number(i)])
+}
+
 function tidy(text) {
   text = text.replace(/\n---\n\s*$/, '\n')   // 去掉块尾分隔线
   text = text.replace(/^\s*---\n/, '')       // 去掉块首分隔线
   return text.trim() + '\n'
+}
+
+// 阅读时长估算：中文按 400 字/分钟。只是个估算，页面上标注为"约"。
+function readMinutes(text) {
+  const n = text.replace(/\s/g, '').length
+  return Math.max(1, Math.round(n / 400))
+}
+
+// 每页顶部写入 frontmatter：难度星级 + 阅读时长，供右侧目录下方的元信息区读取。
+function frontmatter(vol, text) {
+  return ['---', `stars: ${vol.stars.length}`, `readTime: ${readMinutes(text)}`, '---', ''].join('\n')
+}
+
+// 侧边栏条目文案是 v-html 渲染的，这里拼出"等宽序号 + 标题"的两栏结构。
+function navItem(num, title, star) {
+  return `<span class="s-n">${num}</span><span class="s-t">${title}</span>` +
+         (star ? `<span class="s-star">${star}</span>` : '')
 }
 
 function splitVolume(vol) {
@@ -95,14 +128,14 @@ function splitVolume(vol) {
       const main = title.split('：')[0]
       const fname = `ch${String(num).padStart(2, '0')}`
       body = body.replace(/^# 第[一二三四五]部分.*$/gm, '')
-      writeFileSync(join(outdir, `${fname}.md`), tidy(beats(body)), 'utf8')
+      writeFileSync(join(outdir, `${fname}.md`), frontmatter(vol, body) + tidy(fixBold(beats(body))), 'utf8')
       chapters[num] = { file: fname, main }
       continue
     }
     let matched = false
     for (const [prefix, fname, text] of vol.extras) {
       if (head.startsWith(prefix)) {
-        writeFileSync(join(outdir, `${fname}.md`), tidy(beats(body)), 'utf8')
+        writeFileSync(join(outdir, `${fname}.md`), frontmatter(vol, body) + tidy(fixBold(beats(body))), 'utf8')
         extrasOut.push({ file: fname, text })
         matched = true
         break
@@ -115,21 +148,25 @@ function splitVolume(vol) {
     }
   }
 
-  writeFileSync(join(outdir, 'index.md'), tidy(indexParts.join('\n\n')), 'utf8')
+  const indexBody = indexParts.join('\n\n')
+  writeFileSync(join(outdir, 'index.md'), frontmatter(vol, indexBody) + tidy(fixBold(indexBody)), 'utf8')
 
   // 侧边栏分组
-  const items = [{ text: '扉页 · 序', link: `/guide/${vol.id}/` }]
+  const items = [{ text: navItem('·', '扉页 · 序'), link: `/guide/${vol.id}/` }]
   const groups = []
   for (const [pname, lo, hi] of vol.parts) {
     const gi = []
     for (let n = lo; n <= hi; n++) {
-      if (n in chapters) gi.push({ text: `${n}. ${chapters[n].main}`, link: `/guide/${vol.id}/${chapters[n].file}` })
+      if (n in chapters) {
+        gi.push({ text: navItem(String(n).padStart(2, '0'), chapters[n].main),
+                  link: `/guide/${vol.id}/${chapters[n].file}` })
+      }
     }
     groups.push({ text: pname, collapsed: false, items: gi })
   }
-  const tail = extrasOut.map(e => ({ text: e.text, link: `/guide/${vol.id}/${e.file}` }))
-  const sidebarGroup = { text: `${vol.short} ${vol.stars}`, collapsed: vol.id !== '01',
-                        items: [...items, ...groups, ...tail] }
+  const tail = extrasOut.map(e => ({ text: navItem('·', e.text), link: `/guide/${vol.id}/${e.file}` }))
+  const sidebarGroup = { text: navItem(vol.id, vol.short.slice(3), vol.stars),
+                        collapsed: vol.id !== '01', items: [...items, ...groups, ...tail] }
   return [sidebarGroup, extrasOut, outdir]
 }
 
@@ -137,9 +174,9 @@ function main() {
   mkdirSync(GUIDE, { recursive: true })
   // 总纲原样上站
   const overview = readFileSync(join(BOOKS, 'AI时代的编程指南-00-总纲.md'), 'utf8')
-  writeFileSync(join(GUIDE, 'overview.md'), overview, 'utf8')
+  writeFileSync(join(GUIDE, 'overview.md'), fixBold(overview), 'utf8')
 
-  const sidebar = [{ text: '00 总纲', link: '/guide/overview' }]
+  const sidebar = [{ text: navItem('00', '总纲'), link: '/guide/overview' }]
   const glossarySecs = []
   for (const vol of VOLS) {
     const [group, extrasOut, outdir] = splitVolume(vol)
@@ -153,7 +190,7 @@ function main() {
       }
     }
   }
-  sidebar.push({ text: '05 AI 工程心法（规划中）', link: '/roadmap' })
+  sidebar.push({ text: navItem('05', 'AI 工程心法（规划中）'), link: '/roadmap' })
 
   const ts = 'export default ' + JSON.stringify(sidebar, null, 2)
   writeFileSync(join(ROOT, 'docs', '.vitepress', 'sidebar-books.ts'), ts, 'utf8')

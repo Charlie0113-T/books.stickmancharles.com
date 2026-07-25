@@ -13,7 +13,7 @@ import { fileURLToPath } from 'node:url'
 import { execFileSync } from 'node:child_process'
 import { tmpdir } from 'node:os'
 import { createMarkdownRenderer } from 'vitepress'
-import { VOLS, beats } from './assemble.mjs'
+import { VOLS, beats, fixBold } from './assemble.mjs'
 
 const ROOT = dirname(dirname(fileURLToPath(import.meta.url)))
 const OUT = join(ROOT, 'docs', 'public', 'pdf')
@@ -85,7 +85,7 @@ async function main() {
 
   for (const vol of vols) {
     const src = readFileSync(join(ROOT, 'books', vol.file), 'utf8')
-    const body = md.render(beats(src))
+    const body = md.render(fixBold(beats(src)))
     const version = VERSIONS[vol.id]
     const name = vol.file.replace(/\.md$/, `-${version}.pdf`)
     const html = `<!doctype html>
