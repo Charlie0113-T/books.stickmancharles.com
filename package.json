@@ -3,9 +3,9 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "assemble": "python3 scripts/assemble.py",
+    "assemble": "node scripts/assemble.mjs",
     "docs:dev": "vitepress dev docs",
-    "docs:build": "vitepress build docs",
+    "docs:build": "npm run assemble && vitepress build docs",
     "docs:preview": "vitepress preview docs"
   },
   "devDependencies": {
