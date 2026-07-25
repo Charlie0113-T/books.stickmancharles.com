@@ -7,7 +7,8 @@
     "pdf": "node scripts/make-pdf.mjs",
     "docs:dev": "vitepress dev docs",
     "docs:build": "npm run assemble && vitepress build docs",
-    "docs:preview": "vitepress preview docs"
+    "docs:preview": "vitepress preview docs",
+    "deploy": "npm run docs:build && npx wrangler deploy"
   },
   "devDependencies": {
     "vitepress": "^1.6.4"

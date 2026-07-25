@@ -1,8 +1,12 @@
 // Cloudflare Workers（static assets）配置。
 // 这是一个纯静态站：只有 assets，没有 Worker 脚本。静态请求免费。
-// 控制台里连接 GitHub 仓库后，Workers Builds 会读取这里的配置：
-//   Build command:  npm run docs:build
-//   Deploy command: npx wrangler deploy
+//
+// 控制台（Workers & Pages → 这个 Worker → Settings → Build）里只需要填一项：
+//   Deploy command:  npm run deploy
+// 就够了 —— `npm run deploy` 会先构建再部署（见 package.json）。
+// Workers Builds 的 "Build command" 是可选字段，留空就会跳过构建直接部署；
+// 把构建并进 deploy 命令，就不会再出现 "assets.directory does not exist"。
+//
 // 自定义域名 books.stickmancharles.com 在控制台的 Worker → Settings →
 // Domains & Routes 里绑定（域名已托管在 Cloudflare，不需要手动加 DNS 记录）。
 {

@@ -26,7 +26,11 @@ npm run docs:build   # 构建（顺带检查所有内链是否有效）
 ## 上线三步
 
 1. 推上 GitHub（[第二册第 6 章](/guide/02/ch06)的三行咒语）。
-2. Cloudflare 控制台新建一个 Worker（static assets），连接这个 GitHub 仓库：Build Command 填 `npm run docs:build`，部署 `docs/.vitepress/dist` 目录（仓库里的 `wrangler.jsonc` 已写好这些配置）。
+2. Cloudflare 控制台新建一个 Worker（static assets），连接这个 GitHub 仓库，Deploy command 填 `npm run deploy`（资产目录写在仓库的 `wrangler.jsonc` 里）。
+
+::: warning 出事时想起我
+第一次部署报错：`The directory specified by the "assets.directory" field does not exist`。原因是 Workers Builds 的 **Build command 是可选字段，留空就直接跳到部署**——而构建产物 `dist/` 是 gitignore 的，仓库里根本没有，于是 wrangler 找了个空气。修法不是"记得在控制台填对"，而是把构建并进部署命令本身：`"deploy": "npm run docs:build && npx wrangler deploy"`。**能写进仓库的配置，就别放在控制台的记忆里。**
+:::
 3. 在 Worker 上绑定自定义域名 `books.stickmancharles.com`——域名本来就托管在 Cloudflare，一条记录都不用手加（[第四册第 1 章](/guide/04/ch01)）。
 
 书教的最后一步，正好是把书自己发布出去。顺带一句真话：这个站第一版部署在 Vercel（[从零上线第一个网站](/projects/first-website)里教的就是那条路，依然好用），后来搬到 Cloudflare，是为了让域名、DNS、部署住在同一家——搬家本身也是[第四册](/guide/04/)讲的事。
