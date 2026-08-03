@@ -10,7 +10,7 @@
 // 自定义域名 books.stickmancharles.com 在控制台的 Worker → Settings →
 // Domains & Routes 里绑定（域名已托管在 Cloudflare，不需要手动加 DNS 记录）。
 {
-  "name": "books-stickmancharles",
+  "name": "books",
   "compatibility_date": "2026-07-01",
   "assets": {
     "directory": "./docs/.vitepress/dist",
