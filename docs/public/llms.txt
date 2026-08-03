@@ -2,16 +2,16 @@
 
 > The bookshelf of Stickman Charles (Charles Tao, b. 2012) — home of every book he writes. Sister site of https://stickmancharles.com. Written in Chinese; UI bilingual (EN/ZH).
 
-Currently on the shelf: "AI 时代的编程指南" (The AI-Era Programming Guide) — a five-volume series teaching how to read the programmer's world in the AI era, written by Charles Tao with Claude, dedicated to his father Roy. Every example comes from their own real projects. Four volumes are finished at v1.0; volume five is in writing.
+Currently on the shelf: "AI 时代的编程指南" (The AI-Era Programming Guide) — a five-volume series teaching how to read the programmer's world in the AI era, written by Charles Tao with Claude, dedicated to his father Roy. Every example comes from their own real projects. All five volumes are finished at v1.0.
 
 ## The AI-Era Programming Guide
 
-- [Overview / 总纲](https://books.stickmancharles.com/guide/overview): Series map, volume status, and the outline of volume five.
+- [Overview / 总纲](https://books.stickmancharles.com/guide/overview): Series map and volume status.
 - [Vol 01 — 看懂地图 / Reading the Map](https://books.stickmancharles.com/guide/01/) (★, 16 chapters): Requests and responses, front/back end, databases, APIs, servers, DNS. [PDF](https://books.stickmancharles.com/pdf/AI时代的编程指南-01-看懂地图-v1.0.pdf)
 - [Vol 02 — 上手工具 / Hands on Tools](https://books.stickmancharles.com/guide/02/) (★★, 12 chapters): VS Code, Claude, the command line, Git and GitHub — from an empty folder to a live URL. [PDF](https://books.stickmancharles.com/pdf/AI时代的编程指南-02-上手工具-v1.0.pdf)
 - [Vol 03 — 读懂语言 / Reading the Languages](https://books.stickmancharles.com/guide/03/) (★★★, 10 chapters): HTML, CSS, JS, TS, SQL, Markdown — read every file the AI writes. [PDF](https://books.stickmancharles.com/pdf/AI时代的编程指南-03-读懂语言-v1.0.pdf)
 - [Vol 04 — 深入系统 / Into the Systems](https://books.stickmancharles.com/guide/04/) (★★★★, 10 chapters): Cloudflare, bare servers, database modeling, API design, logs and cost. [PDF](https://books.stickmancharles.com/pdf/AI时代的编程指南-04-深入系统-v1.0.pdf)
-- Vol 05 — AI 工程心法 / AI Engineering Mindset (★★★★★): In writing. Outline in the overview volume; roadmap at https://books.stickmancharles.com/roadmap
+- [Vol 05 — 跟 AI 搭档 / Partnering with AI](https://books.stickmancharles.com/guide/05/) (★★★★★, 14 chapters): Pre-training, post-training, distillation, RAG — then specs, tests, CI/CD, security, shipping and open source. [PDF](https://books.stickmancharles.com/pdf/AI时代的编程指南-05-跟AI搭档-v1.0.pdf)
 
 ## Other sections
 

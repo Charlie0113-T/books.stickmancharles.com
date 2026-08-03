@@ -18,7 +18,7 @@ const STR = {
 const t = computed(() => STR[lang.value])
 const guide = series[0]
 const seriesTitle = computed(() => (lang.value === 'zh' ? guide.title_zh : guide.title_en))
-// 摞在架上：05 的稿纸在最上面，01 垫底
+// 摞在架上：05 在最上面，01 垫底
 const stack = computed(() =>
   [...guide.books].reverse().map(b => ({
     ...b,
@@ -30,11 +30,13 @@ const stack = computed(() =>
 )
 const doneCount = guide.books.filter(b => b.status === 'done').length
 const writingCount = guide.books.length - doneCount
-const statusText = computed(() =>
-  lang.value === 'zh'
+const statusText = computed(() => {
+  if (writingCount === 0)
+    return lang.value === 'zh' ? `${doneCount} 本可读 · 系列完结` : `${doneCount} READABLE · SERIES COMPLETE`
+  return lang.value === 'zh'
     ? `${doneCount} 本可读 · ${writingCount} 本写作中`
     : `${doneCount} READABLE · ${writingCount} IN WRITING`
-)
+})
 
 // 每本书平放时的物理差异：宽度与错位（毫米级的不整齐才像真书堆）
 const GEO = { '01': [322, 0], '02': [312, -5], '03': [296, 4], '04': [306, -8], '05': [292, 10] }
@@ -266,7 +268,7 @@ function toggleTheme() {
   font-size: 9px; letter-spacing: 0.18em; color: var(--vp-c-text-3);
 }
 
-/* 第五册：未装订的稿纸束 */
+/* 写作中的册：未装订的稿纸束（留给未来的书） */
 .manuscript {
   border-style: dashed;
   background: transparent;

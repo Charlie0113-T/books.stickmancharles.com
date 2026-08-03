@@ -2,7 +2,7 @@
 // make-pdf.mjs — 从 books/ 生成每册 PDF（发行物，不是构建产物）。
 //
 // 架构决定：PDF 只在本地生成、提交进仓库，CI 永不构建 PDF。
-// 用法：npm run pdf            （生成全部四册）
+// 用法：npm run pdf            （生成全部五册）
 //       npm run pdf -- 01      （只生成第一册，用于先验证字体嵌入）
 //
 // 渲染链：books/*.md → beats() 容器转换 → VitePress 的 markdown 渲染器
@@ -19,7 +19,7 @@ const ROOT = dirname(dirname(fileURLToPath(import.meta.url)))
 const OUT = join(ROOT, 'docs', 'public', 'pdf')
 
 // 版本号：与总纲一致，各册 v1.0。发新版时改这里，文件名随之变化，旧版留档。
-const VERSIONS = { '01': 'v1.0', '02': 'v1.0', '03': 'v1.0', '04': 'v1.0' }
+const VERSIONS = { '01': 'v1.0', '02': 'v1.0', '03': 'v1.0', '04': 'v1.0', '05': 'v1.0' }
 
 const CHROMES = [
   '/Applications/Google Chrome.app/Contents/MacOS/Google Chrome',

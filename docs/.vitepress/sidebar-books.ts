@@ -300,7 +300,89 @@ export default [
     ]
   },
   {
-    "text": "<span class=\"s-n\">05</span><span class=\"s-t\">AI 工程心法（规划中）</span>",
-    "link": "/roadmap"
+    "text": "<span class=\"s-n\">05</span><span class=\"s-t\">跟 AI 搭档</span><span class=\"s-star\">★★★★★</span>",
+    "collapsed": true,
+    "items": [
+      {
+        "text": "<span class=\"s-n\">·</span><span class=\"s-t\">扉页 · 序</span>",
+        "link": "/guide/05/"
+      },
+      {
+        "text": "认识你的搭档",
+        "collapsed": false,
+        "items": [
+          {
+            "text": "<span class=\"s-n\">01</span><span class=\"s-t\">预训练</span>",
+            "link": "/guide/05/ch01"
+          },
+          {
+            "text": "<span class=\"s-n\">02</span><span class=\"s-t\">后训练</span>",
+            "link": "/guide/05/ch02"
+          },
+          {
+            "text": "<span class=\"s-n\">03</span><span class=\"s-t\">一个模型的多种身材</span>",
+            "link": "/guide/05/ch03"
+          },
+          {
+            "text": "<span class=\"s-n\">04</span><span class=\"s-t\">外挂记忆</span>",
+            "link": "/guide/05/ch04"
+          }
+        ]
+      },
+      {
+        "text": "和搭档共事的制度",
+        "collapsed": false,
+        "items": [
+          {
+            "text": "<span class=\"s-n\">05</span><span class=\"s-t\">规格驱动开发</span>",
+            "link": "/guide/05/ch05"
+          },
+          {
+            "text": "<span class=\"s-n\">06</span><span class=\"s-t\">给 AI 立法（进阶）</span>",
+            "link": "/guide/05/ch06"
+          },
+          {
+            "text": "<span class=\"s-n\">07</span><span class=\"s-t\">测试</span>",
+            "link": "/guide/05/ch07"
+          },
+          {
+            "text": "<span class=\"s-n\">08</span><span class=\"s-t\">CI/CD</span>",
+            "link": "/guide/05/ch08"
+          },
+          {
+            "text": "<span class=\"s-n\">09</span><span class=\"s-t\">像攻击者一样思考</span>",
+            "link": "/guide/05/ch09"
+          },
+          {
+            "text": "<span class=\"s-n\">10</span><span class=\"s-t\">技术选型</span>",
+            "link": "/guide/05/ch10"
+          },
+          {
+            "text": "<span class=\"s-n\">11</span><span class=\"s-t\">不可逆系统工程学</span>",
+            "link": "/guide/05/ch11"
+          },
+          {
+            "text": "<span class=\"s-n\">12</span><span class=\"s-t\">从项目到产品</span>",
+            "link": "/guide/05/ch12"
+          },
+          {
+            "text": "<span class=\"s-n\">13</span><span class=\"s-t\">开源与协作</span>",
+            "link": "/guide/05/ch13"
+          },
+          {
+            "text": "<span class=\"s-n\">14</span><span class=\"s-t\">毕业课</span>",
+            "link": "/guide/05/ch14"
+          }
+        ]
+      },
+      {
+        "text": "<span class=\"s-n\">·</span><span class=\"s-t\">写在最后：给爸爸，也给每一位读者</span>",
+        "link": "/guide/05/letter"
+      },
+      {
+        "text": "<span class=\"s-n\">·</span><span class=\"s-t\">附：本册新词</span>",
+        "link": "/guide/05/terms"
+      }
+    ]
   }
 ]

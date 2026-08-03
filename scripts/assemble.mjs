@@ -37,6 +37,12 @@ export const VOLS = [
     parts: [['深入系统', 1, 10]],
     extras: [['# 附：本册新词', 'terms', '附：本册新词']],
   },
+  {
+    id: '05', file: 'AI时代的编程指南-05-跟AI搭档.md', short: '05 跟 AI 搭档', stars: '★★★★★',
+    parts: [['认识你的搭档', 1, 4], ['和搭档共事的制度', 5, 14]],
+    extras: [['# 写在最后', 'letter', '写在最后：给爸爸，也给每一位读者'],
+             ['# 附：本册新词', 'terms', '附：本册新词']],
+  },
 ]
 
 const BEAT_RE = /^\*\*(关键领悟|试一试|出事时想起我|认脸卡)\*\*(（[^）]*）)?[：:]\s*(.*)$/
@@ -190,8 +196,6 @@ function main() {
       }
     }
   }
-  sidebar.push({ text: navItem('05', 'AI 工程心法（规划中）'), link: '/roadmap' })
-
   const ts = 'export default ' + JSON.stringify(sidebar, null, 2)
   writeFileSync(join(ROOT, 'docs', '.vitepress', 'sidebar-books.ts'), ts, 'utf8')
 
