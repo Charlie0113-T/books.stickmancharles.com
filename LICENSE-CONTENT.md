@@ -2,6 +2,8 @@
 
 本许可适用于本仓库的**正文内容与网站源码**：`books/` 下的书稿及由它生成的一切（`docs/guide/**`、`docs/glossary.md`）、`docs/reference/**`、`docs/start/**`、`docs/projects/**`、站点文案，以及网站源码本身（`scripts/`、`docs/.vitepress/`、部署配置）。**唯一的例外：书中出现的代码段适用 MIT，见 `LICENSE`。**人话版说明见站点 `/license` 页。
 
+**品牌资产不在此许可范围内**：「Stickman Charles」这个名字、站点 favicon（`docs/public/favicon.png`）、社交分享图（`docs/public/og-image.png`），以及其他代表这个品牌的视觉识别资产，本许可与 `LICENSE` 里的 MIT 条款均不覆盖。未经事先书面同意，不得使用、复制、修改或再发布这些品牌资产。
+
 署名格式：Charles Tao，《AI 时代的编程指南》，books.stickmancharles.com
 
 以下为 Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International 许可证官方全文（legal code）：
@@ -9,6 +11,8 @@
 # Content License: CC BY-NC-ND 4.0
 
 This license applies to the **main content and website source code** of this repository: the manuscript under `books/` and everything generated from it (`docs/guide/**`, `docs/glossary.md`), `docs/reference/**`, `docs/start/**`, `docs/projects/**`, site text, and the website source code itself (`scripts/`, `docs/.vitepress/`, deployment configuration). **The only exception: Code snippets appearing in the book are licensed under MIT, see `LICENSE`.** A simplified explanation can be found on the site's `/license` page.
+
+**Brand assets are outside the scope of this license**: the name "Stickman Charles," the site favicon (`docs/public/favicon.png`), the social share image (`docs/public/og-image.png`), and other visual identity assets representing this brand are covered by neither this license nor the MIT terms in `LICENSE`. Prior written consent is required before using, copying, modifying, or redistributing these brand assets.
 
 Attribution format: Charles Tao, *Programming Guide for the AI ​​Era*, books.stickmancharles.com
 

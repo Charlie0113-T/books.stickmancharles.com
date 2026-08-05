@@ -8,6 +8,10 @@ Everything else in this repository — the prose content AND the website
 source code (scripts/, docs/.vitepress/, deployment config) — is licensed
 under CC BY-NC-ND 4.0 instead; see LICENSE-CONTENT.md.
 
+Brand assets (the "Stickman Charles" name, favicon.png, og-image.png, and
+other visual identity assets) are covered by neither license — see
+LICENSE-CONTENT.md.
+
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
 in the Software without restriction, including without limitation the rights

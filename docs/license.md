@@ -20,6 +20,12 @@
 
 为什么单独放开？因为**教学代码存在的意义就是被复制和修改**。你从书里抄一段代码、改到面目全非、放进自己的项目、拿它赚钱——这正是我们希望发生的事。把"禁止演绎"套在你正在学的代码上是错的，所以书中代码单独走 MIT，怎么用都行，署名都不必。
 
+## 品牌资产：两份许可证都不包括
+
+「Stickman Charles」这个名字、站点用的 favicon（`docs/public/favicon.png`）、分享卡片用的 og-image（`docs/public/og-image.png`），以及其他代表这个品牌的视觉识别资产，不在上面两份许可证的范围里——CC BY-NC-ND 不管，MIT 也不管。
+
+意思是：不能因为"内容是 CC 协议"或者"代码是 MIT"，想用，来信聊，多数情况可以商量，但要事先说一声。
+
 ## 链上存证
 
 每一版发行 PDF 都是冻结版本：定稿后用 EchoUploader 把文件哈希写进 Cardano 区块链，给这一版留下一张谁也改不了的"出生证明"——这一版是什么、何时定稿，链上可查。第五册第 11 章讲的"为考古留证"，这套书自己先做到了。
@@ -34,8 +40,8 @@
 | 04 深入系统 | v1.1 | [在 EchoUploader 查验](https://uploader.echoforgellc.tech/anchor/4b766da9eb0fdff67b31b94522090a76b58b4b137df343af136d1bfaabaef398) |
 | 05 跟 AI 搭档 | v1.1 | [在 EchoUploader 查验](https://uploader.echoforgellc.tech/anchor/f16f9f7f12c1bdb367a18f73110d7218aca865f0429b6044af6c8acdc9bdecaa) |
 
-存证只证明"这份文件在那个时刻长这样"，它不替代许可证。你拿到的是不是原版，看存证；你能拿它做什么，看上面两节。
+存证只证明"这份文件在那个时刻长这样"，它不替代许可证。你拿到的是不是原版，看存证；你能拿它做什么，看上面几节。
 
 ## 一句话总结
 
-书和网站**照原样传播**，书里教的代码**随便拿去改**。拿不准的情况，来信问：<charlesisworkinghard@gmail.com>。
+书和网站**照原样传播**，书里教的代码**随便拿去改**，品牌资产**先来问一声**。拿不准的情况，来信问：<charlesisworkinghard@gmail.com>。
