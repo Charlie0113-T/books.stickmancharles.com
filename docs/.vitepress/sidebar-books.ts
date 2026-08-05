@@ -1,9 +1,5 @@
 export default [
   {
-    "text": "<span class=\"s-n\">00</span><span class=\"s-t\">总纲</span>",
-    "link": "/guide/overview"
-  },
-  {
     "text": "<span class=\"s-n\">01</span><span class=\"s-t\">看懂地图</span><span class=\"s-star\">★</span>",
     "collapsed": false,
     "items": [
@@ -12,7 +8,7 @@ export default [
         "link": "/guide/01/"
       },
       {
-        "text": "地图：软件世界长什么样",
+        "text": "地图 · 软件世界长什么样",
         "collapsed": false,
         "items": [
           {
@@ -42,7 +38,7 @@ export default [
         ]
       },
       {
-        "text": "工具：每天在用的东西",
+        "text": "工具 · 每天在用的东西",
         "collapsed": false,
         "items": [
           {
@@ -68,7 +64,7 @@ export default [
         ]
       },
       {
-        "text": "心法：和 AI 一起变强",
+        "text": "心法 · 和 AI 一起变强",
         "collapsed": false,
         "items": [
           {
@@ -94,7 +90,7 @@ export default [
         ]
       },
       {
-        "text": "<span class=\"s-n\">·</span><span class=\"s-t\">写在最后：给爸爸</span>",
+        "text": "<span class=\"s-n\">·</span><span class=\"s-t\">写在最后 · 给爸爸</span>",
         "link": "/guide/01/letter"
       },
       {
@@ -338,7 +334,7 @@ export default [
             "link": "/guide/05/ch05"
           },
           {
-            "text": "<span class=\"s-n\">06</span><span class=\"s-t\">给 AI 立法（进阶）</span>",
+            "text": "<span class=\"s-n\">06</span><span class=\"s-t\">给 AI 立法</span>",
             "link": "/guide/05/ch06"
           },
           {
@@ -376,7 +372,7 @@ export default [
         ]
       },
       {
-        "text": "<span class=\"s-n\">·</span><span class=\"s-t\">写在最后：给爸爸，也给每一位读者</span>",
+        "text": "<span class=\"s-n\">·</span><span class=\"s-t\">写在最后 · 给每一位读者</span>",
         "link": "/guide/05/letter"
       },
       {

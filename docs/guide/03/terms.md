@@ -6,7 +6,7 @@ readTime: 2
 
 - <strong>标签（Tag）/ 属性（Attribute）/ DOM</strong>：HTML 的积木 / 积木上的设置项 / 那棵树在浏览器内存里的活体。
 - <strong>选择器（Selector）</strong>：CSS 的"选中谁"，`.class` 最常用。
-- <strong>盒模型（Box Model）</strong>：内容 → padding → border → margin，每个元素都是套娃矩形。
+- <strong>盒模型（Box Model）</strong>：从里到外内容、padding、border、margin 四层，每个元素都是套娃矩形。
 - <strong>层叠（Cascade）</strong>：多条规则撞车时，更具体、更靠后的赢。
 - <strong>Tailwind</strong>：预制 class 字典，把样式直接挂在 HTML 的名牌位上。
 - <strong>箭头函数（=>）</strong>：function 的现代简写。
@@ -24,5 +24,5 @@ readTime: 2
 
 ---
 
-*第三册《读懂语言》v1.0 · 完*
-*下一册：《深入系统》——下车，打开引擎盖。*
+*第三册《读懂语言》v1.1 · 完*
+*下一册《深入系统》，下车，打开引擎盖。*

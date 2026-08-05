@@ -10,10 +10,12 @@ let lastTrigger = null
 const STR = {
   zh: { read: '在线阅读', pdf: '下载 PDF', writing: '写作中', ch: '章', vol: '第', volSuffix: '册',
         next: '留给下一本书', toLang: 'EN', close: '关闭',
-        license: '许可', licenseMore: '详情 →' },
+        license: '许可', licenseMore: '详情 →',
+        anchor: '存证', anchorText: '已用 EchoUploader 存证于 Cardano', anchorMore: '查验 →' },
   en: { read: 'READ ONLINE', pdf: 'DOWNLOAD PDF', writing: 'WRITING', ch: 'CH', vol: 'VOLUME', volSuffix: '',
         next: 'FOR THE NEXT BOOK', toLang: '中文', close: 'Close',
-        license: 'LICENSE', licenseMore: 'Details →' },
+        license: 'LICENSE', licenseMore: 'Details →',
+        anchor: 'ANCHORED', anchorText: 'on Cardano via EchoUploader', anchorMore: 'Verify →' },
 }
 const t = computed(() => STR[lang.value])
 const guide = series[0]
@@ -164,6 +166,11 @@ function toggleTheme() {
             <span class="fi-license-k">{{ t.license }}</span>
             <span>{{ active.license }}</span>
             <a class="fi-license-more" href="/license">{{ t.licenseMore }}</a>
+          </p>
+          <p v-if="active.anchor" class="fi-license fi-anchor">
+            <span class="fi-license-k">{{ t.anchor }}</span>
+            <span class="fi-anchor-t"><span class="fi-anchor-v">PDF {{ active.version }}</span>{{ t.anchorText }}</span>
+            <a class="fi-license-more" :href="active.anchor" target="_blank" rel="noopener">{{ t.anchorMore }}</a>
           </p>
         </div>
       </div>
@@ -453,6 +460,17 @@ function toggleTheme() {
   font-family: var(--vp-font-family-mono);
   font-size: 9px; letter-spacing: 0.2em; text-transform: uppercase;
   color: var(--vp-c-text-3);
+}
+/* 存证行：紧跟许可行，同属"这本书的凭据"一组，所以不再另起分隔线 */
+.fi-anchor { margin-top: 8px; padding-top: 0; border-top: none; }
+/* 让文字块自己折行：窄卡片或英文变长时，断点落在句中，不会把标签甩成孤行 */
+.fi-anchor-t { flex: 1 1 auto; min-width: 0; }
+.fi-anchor-v {
+  font-family: var(--vp-font-family-mono);
+  font-size: 9px; letter-spacing: 0.16em;
+  color: var(--vp-c-text-2);
+  border: 1px solid var(--vp-c-divider);
+  padding: 1px 5px; margin-right: 7px;
 }
 .fi-license-more { color: var(--vp-c-text-2); text-decoration: none; transition: color 0.2s ease; }
 .fi-license-more:hover { color: var(--vp-c-text-1); }

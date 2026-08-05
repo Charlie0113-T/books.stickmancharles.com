@@ -16,8 +16,8 @@ const GUIDE = join(ROOT, 'docs', 'guide')
 export const VOLS = [
   {
     id: '01', file: 'AI时代的编程指南-01-看懂地图.md', short: '01 看懂地图', stars: '★',
-    parts: [['地图：软件世界长什么样', 1, 6], ['工具：每天在用的东西', 7, 11], ['心法：和 AI 一起变强', 12, 16]],
-    extras: [['# 写在最后', 'letter', '写在最后：给爸爸'],
+    parts: [['地图 · 软件世界长什么样', 1, 6], ['工具 · 每天在用的东西', 7, 11], ['心法 · 和 AI 一起变强', 12, 16]],
+    extras: [['# 写在最后', 'letter', '写在最后 · 给爸爸'],
              ['# 附录 A', 'appendix-a', '附录 A · 术语表'],
              ['# 附录 B', 'appendix-b', '附录 B · 解剖我们自己的项目'],
              ['# 附录 C', 'appendix-c', '附录 C · 红线卡']],
@@ -40,7 +40,7 @@ export const VOLS = [
   {
     id: '05', file: 'AI时代的编程指南-05-跟AI搭档.md', short: '05 跟 AI 搭档', stars: '★★★★★',
     parts: [['认识你的搭档', 1, 4], ['和搭档共事的制度', 5, 14]],
-    extras: [['# 写在最后', 'letter', '写在最后：给爸爸，也给每一位读者'],
+    extras: [['# 写在最后', 'letter', '写在最后 · 给每一位读者'],
              ['# 附：本册新词', 'terms', '附：本册新词']],
   },
 ]
@@ -131,7 +131,8 @@ function splitVolume(vol) {
     if (m) {
       const num = parseInt(m[1], 10)
       const title = m[2].trim()
-      const main = title.split('：')[0]
+      // 章标题用 " · " 分隔主副题（历史稿件用 "："），侧边栏只取主题
+      const main = title.split(/ · |：/)[0]
       const fname = `ch${String(num).padStart(2, '0')}`
       body = body.replace(/^# 第[一二三四五]部分.*$/gm, '')
       writeFileSync(join(outdir, `${fname}.md`), frontmatter(vol, body) + tidy(fixBold(beats(body))), 'utf8')
@@ -178,11 +179,8 @@ function splitVolume(vol) {
 
 function main() {
   mkdirSync(GUIDE, { recursive: true })
-  // 总纲原样上站
-  const overview = readFileSync(join(BOOKS, 'AI时代的编程指南-00-总纲.md'), 'utf8')
-  writeFileSync(join(GUIDE, 'overview.md'), fixBold(overview), 'utf8')
-
-  const sidebar = [{ text: navItem('00', '总纲'), link: '/guide/overview' }]
+  // 00 总纲只留在 books/ 里存档，不上站（2026-08 起）
+  const sidebar = []
   const glossarySecs = []
   for (const vol of VOLS) {
     const [group, extrasOut, outdir] = splitVolume(vol)

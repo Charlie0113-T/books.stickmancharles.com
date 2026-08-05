@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<!-- og-image 源文件。重新生成：
+  "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome" \
+    --headless=new --screenshot=og-2x.png --window-size=1200,630 \
+    --force-device-scale-factor=2 --hide-scrollbars "file://$PWD/scripts/og-image.html"
+  sips -z 630 1200 og-2x.png --out docs/public/og-image.png
+-->
+<html lang="zh">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>og-image</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html, body { width: 1200px; height: 630px; background: #000; overflow: hidden; }
+  body {
+    font-family: "Helvetica Neue", -apple-system, "PingFang SC", sans-serif;
+    color: #fff;
+  }
+  .panel {
+    position: absolute; inset: 28px 0;
+    background: #0b0b0c;
+    border-top: 1px solid #1b1b1e;
+    border-bottom: 1px solid #1b1b1e;
+  }
+  .mono {
+    font-family: "SF Mono", Menlo, monospace;
+    letter-spacing: .32em;
+  }
+  /* 左侧书架卡片 */
+  .shelf {
+    position: absolute; left: 146px; top: 100px;
+    width: 300px; height: 430px;
+    background: #101012;
+    border: 1px solid #232327;
+    border-radius: 10px;
+    padding: 22px 18px;
+  }
+  .shelf-label { font-size: 11px; color: #6e6e76; letter-spacing: .28em; margin: 4px 0 16px 4px; }
+  .slot {
+    border: 1px dashed #3a3a40; border-radius: 7px;
+    color: #55555c; font-size: 12px; letter-spacing: .18em;
+    text-align: center; padding: 10px 0; margin: 0 10px 14px;
+  }
+  .spine {
+    background: linear-gradient(180deg, #1a1a1d, #121214);
+    border: 1px solid #2c2c31; border-radius: 7px;
+    padding: 10px 14px; margin-bottom: 9px;
+    font-size: 14px; font-weight: 600;
+    box-shadow: 0 2px 6px rgba(0,0,0,.5);
+  }
+  .spine .n { font-family: "SF Mono", Menlo, monospace; font-size: 10px; color: #7b7b84; letter-spacing: .2em; margin-right: 9px; font-weight: 400; }
+  .s5 { margin-left: 4px; margin-right: 10px; }
+  .s4 { margin-left: 0px; margin-right: 16px; }
+  .s3 { margin-left: 14px; margin-right: 2px; }
+  .s2 { margin-left: 2px; margin-right: 8px; }
+  .s1 { margin-left: 0px; margin-right: 0px; }
+  .shelf-foot { border-top: 1px solid #232327; margin: 14px 6px 0; padding-top: 13px;
+    text-align: center; font-size: 11px; color: #5b5b63; letter-spacing: .3em; }
+  /* 右侧文字区 */
+  .right { position: absolute; left: 532px; top: 158px; width: 580px; }
+  .domain { font-size: 14px; color: #8a8a92; margin-bottom: 26px; }
+  h1 { font-size: 62px; line-height: 1.12; font-weight: 700; letter-spacing: -.01em; }
+  .desc { font-size: 22px; color: #9a9aa2; margin-top: 26px; font-weight: 300; }
+  .status { margin-top: 34px; font-size: 14px; color: #8a8a92; display: flex; align-items: center; }
+  .dot { width: 9px; height: 9px; border-radius: 50%; background: #fff; margin-right: 14px; }
+</style>
+</head>
+<body>
+  <div class="panel"></div>
+
+  <div class="shelf">
+    <div class="shelf-label mono">AI 时代的编程指南</div>
+    <div class="slot mono">留给下一本书</div>
+    <div class="spine s5"><span class="n">05</span>跟 AI 搭档</div>
+    <div class="spine s4"><span class="n">04</span>深入系统</div>
+    <div class="spine s3"><span class="n">03</span>读懂语言</div>
+    <div class="spine s2"><span class="n">02</span>上手工具</div>
+    <div class="spine s1"><span class="n">01</span>看懂地图</div>
+    <div class="shelf-foot mono">全五册 · 完</div>
+  </div>
+
+  <div class="right">
+    <div class="domain mono">BOOKS.STICKMANCHARLES.COM</div>
+    <h1>Stickman Charles<br>Books</h1>
+    <div class="desc">Stickman Charles 的书架——存放我写的每一本书。</div>
+    <div class="status"><span class="dot"></span><span class="mono">5 READABLE · OPEN SOURCE</span></div>
+  </div>
+</body>
+</html>

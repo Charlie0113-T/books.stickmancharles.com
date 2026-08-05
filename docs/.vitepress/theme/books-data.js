@@ -1,6 +1,8 @@
 // 书架数据。书架属于未来所有的书；目前架上只有一套。
 // 中文简介取自各册书稿/总纲的真实定位，英文是它们的直译，不新造一句话。
 // pdf：有 PDF 时填 /pdf/ 下的路径；null 则不渲染下载按钮。
+// version / anchor：当前发行版本，及它在 Cardano 上的 EchoUploader 存证落地页。
+// 换新版 PDF 时三个字段一起改——存证认的是那一版文件的哈希，版本对不上就是假证。
 export const series = [
   {
     id: 'ai-guide',
@@ -17,7 +19,9 @@ export const series = [
         status: 'done',
         chapters: 16,
         readLink: '/guide/01/',
-        pdf: '/pdf/AI时代的编程指南-01-看懂地图-v1.0.pdf',
+        pdf: '/pdf/AI时代的编程指南-01-看懂地图-v1.2.pdf',
+        version: 'v1.2',
+        anchor: 'https://uploader.echoforgellc.tech/anchor/e88097f615b41b2fecede6a1e77cabd9a2fc2e436b0a9fe4b0909da1c088701d',
         license_zh: '正文 CC BY-NC-ND 4.0 · 书中代码 MIT',
         license_en: 'Prose CC BY-NC-ND 4.0 · in-book code MIT',
         blurb_zh: '请求与响应、前后端、数据库、API、服务器、DNS——先把地图看熟。',
@@ -33,7 +37,9 @@ export const series = [
         status: 'done',
         chapters: 12,
         readLink: '/guide/02/',
-        pdf: '/pdf/AI时代的编程指南-02-上手工具-v1.0.pdf',
+        pdf: '/pdf/AI时代的编程指南-02-上手工具-v1.1.pdf',
+        version: 'v1.1',
+        anchor: 'https://uploader.echoforgellc.tech/anchor/d3538fb901cbffc706b01d6516e079fd3fcaacbece538d4e327c5e43151cdbe4',
         license_zh: '正文 CC BY-NC-ND 4.0 · 书中代码 MIT',
         license_en: 'Prose CC BY-NC-ND 4.0 · in-book code MIT',
         blurb_zh: 'VS Code、Claude、命令行、Git 与 GitHub——从空文件夹到上线网址。',
@@ -49,7 +55,9 @@ export const series = [
         status: 'done',
         chapters: 10,
         readLink: '/guide/03/',
-        pdf: '/pdf/AI时代的编程指南-03-读懂语言-v1.0.pdf',
+        pdf: '/pdf/AI时代的编程指南-03-读懂语言-v1.1.pdf',
+        version: 'v1.1',
+        anchor: 'https://uploader.echoforgellc.tech/anchor/e7a65a966e06d4c8ee488daa0de117860ace6f1e85a4dca1da9e7ac02965aaf6',
         license_zh: '正文 CC BY-NC-ND 4.0 · 书中代码 MIT',
         license_en: 'Prose CC BY-NC-ND 4.0 · in-book code MIT',
         blurb_zh: 'HTML、CSS、JS、TS、SQL、Markdown——目标不是会写，是读得懂、改得动。',
@@ -65,7 +73,9 @@ export const series = [
         status: 'done',
         chapters: 10,
         readLink: '/guide/04/',
-        pdf: '/pdf/AI时代的编程指南-04-深入系统-v1.0.pdf',
+        pdf: '/pdf/AI时代的编程指南-04-深入系统-v1.1.pdf',
+        version: 'v1.1',
+        anchor: 'https://uploader.echoforgellc.tech/anchor/4b766da9eb0fdff67b31b94522090a76b58b4b137df343af136d1bfaabaef398',
         license_zh: '正文 CC BY-NC-ND 4.0 · 书中代码 MIT',
         license_en: 'Prose CC BY-NC-ND 4.0 · in-book code MIT',
         blurb_zh: 'Cloudflare、裸服务器、数据库建模、API 设计、日志与成本——出事之前先知道。',
@@ -81,7 +91,9 @@ export const series = [
         status: 'done',
         chapters: 14,
         readLink: '/guide/05/',
-        pdf: '/pdf/AI时代的编程指南-05-跟AI搭档-v1.0.pdf',
+        pdf: '/pdf/AI时代的编程指南-05-跟AI搭档-v1.1.pdf',
+        version: 'v1.1',
+        anchor: 'https://uploader.echoforgellc.tech/anchor/f16f9f7f12c1bdb367a18f73110d7218aca865f0429b6044af6c8acdc9bdecaa',
         license_zh: '正文 CC BY-NC-ND 4.0 · 书中代码 MIT',
         license_en: 'Prose CC BY-NC-ND 4.0 · in-book code MIT',
         blurb_zh: '预训练、后训练、蒸馏、RAG——掀开搭档的引擎盖；规格、测试、门禁、发布、开源——把共事经验立成制度。',

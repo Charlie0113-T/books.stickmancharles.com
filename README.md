@@ -9,5 +9,6 @@ Stickman Charles 的书架——存放我写的每一本书。现在架上：《
 - 构建：`npm run docs:build`（输出 `docs/.vitepress/dist`，构建会校验全部内链）
 - 部署：GitHub → Cloudflare Workers（static assets）→ 自定义域名 `books.stickmancharles.com`。控制台 Deploy command 填 `npm run deploy`（该命令自带构建，Build command 可留空）
 - 许可：正文与网站源码 CC BY-NC-ND 4.0（`LICENSE-CONTENT.md`），书中代码段 MIT（`LICENSE`），说明见站点 `/license`
+- 贡献：欢迎 PR，流程和格式约定见 `CONTRIBUTING.md`
 
 由 Charles Tao 与 Claude 协作完成。献给 Roy。

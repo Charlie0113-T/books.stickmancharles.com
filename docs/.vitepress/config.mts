@@ -80,7 +80,7 @@ export default defineConfig({
           '@id': 'https://books.stickmancharles.com/#ai-guide',
           name: 'AI 时代的编程指南',
           alternateName: 'The AI-Era Programming Guide',
-          url: 'https://books.stickmancharles.com/guide/overview',
+          url: 'https://books.stickmancharles.com/guide/01/',
           inLanguage: 'zh-CN',
           author: { '@id': 'https://stickmancharles.com/#charles-tao' },
           license: 'https://creativecommons.org/licenses/by-nc-nd/4.0/',
@@ -98,7 +98,7 @@ export default defineConfig({
       { text: '<span class="i18n-zh">速查</span><span class="i18n-en">Reference</span>', link: '/reference/git' },
       { text: '<span class="i18n-zh">项目</span><span class="i18n-en">Projects</span>', link: '/projects/first-website' },
       { text: '<span class="i18n-zh">术语表</span><span class="i18n-en">Glossary</span>', link: '/glossary' },
-      { text: '<span class="i18n-zh">路线图</span><span class="i18n-en">Roadmap</span>', link: '/roadmap' },
+      { text: '<span class="i18n-zh">许可</span><span class="i18n-en">License</span>', link: '/license' },
       { text: '<span class="i18n-zh">主站</span><span class="i18n-en">Main site</span>', link: 'https://stickmancharles.com' },
     ],
     sidebar: {

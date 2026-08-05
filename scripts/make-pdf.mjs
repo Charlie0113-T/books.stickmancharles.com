@@ -18,8 +18,9 @@ import { VOLS, beats, fixBold } from './assemble.mjs'
 const ROOT = dirname(dirname(fileURLToPath(import.meta.url)))
 const OUT = join(ROOT, 'docs', 'public', 'pdf')
 
-// 版本号：与总纲一致，各册 v1.0。发新版时改这里，文件名随之变化，旧版留档。
-const VERSIONS = { '01': 'v1.0', '02': 'v1.0', '03': 'v1.0', '04': 'v1.0', '05': 'v1.0' }
+// 版本号：与各册书稿扉页一致。发新版时改这里，文件名随之变化，旧版留档。
+// v1.1/v1.2（2026-08）：全五册文风重写；练习环节由"父子共读"改为读者自查。
+const VERSIONS = { '01': 'v1.2', '02': 'v1.1', '03': 'v1.1', '04': 'v1.1', '05': 'v1.1' }
 
 const CHROMES = [
   '/Applications/Google Chrome.app/Contents/MacOS/Google Chrome',

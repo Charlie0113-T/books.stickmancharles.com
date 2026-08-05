@@ -6,6 +6,14 @@
 
 以下为 Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International 许可证官方全文（legal code）：
 
+# Content License: CC BY-NC-ND 4.0
+
+This license applies to the **main content and website source code** of this repository: the manuscript under `books/` and everything generated from it (`docs/guide/**`, `docs/glossary.md`), `docs/reference/**`, `docs/start/**`, `docs/projects/**`, site text, and the website source code itself (`scripts/`, `docs/.vitepress/`, deployment configuration). **The only exception: Code snippets appearing in the book are licensed under MIT, see `LICENSE`.** A simplified explanation can be found on the site's `/license` page.
+
+Attribution format: Charles Tao, *Programming Guide for the AI ​​Era*, books.stickmancharles.com
+
+The following is the full official text (legal code) of the Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License:
+
 ```text
 Attribution-NonCommercial-NoDerivatives 4.0 International
 

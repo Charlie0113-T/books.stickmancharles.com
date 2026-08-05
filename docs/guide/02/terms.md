@@ -17,9 +17,9 @@ readTime: 2
 - <strong>scripts / npm run</strong>：package.json 里的快捷按钮区 / 按下快捷按钮。
 - <strong>.env.example</strong>：环境变量清单模板，只列名字不含钥匙，可进 Git。
 - <strong>CLAUDE.md / 技能（Skill）</strong>：项目宪法 / 可复用的专项规程。
-- <strong>审查（Review）</strong>：合并前正眼看完全部差异并给出意见的过程——本册真正想教会你的事。
+- <strong>审查（Review）</strong>：合并前正眼看完全部差异并给出意见的过程，也是本册真正想教会你的事。
 
 ---
 
-*第二册《上手工具》v1.0 · 完*
-*下一册：《读懂语言》——读懂 AI 写下的每一个文件。*
+*第二册《上手工具》v1.1 · 完*
+*下一册《读懂语言》，读懂 AI 写下的每一个文件。*

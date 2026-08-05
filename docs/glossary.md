@@ -10,19 +10,19 @@ readTime: 7
 ---
 # 附录 A · 术语表（中英对照）
 
-> 这份表是活的：每征服一个新词，就自己加一行。
+> 这份表是活的，每征服一个新词，就自己加一行。
 
 <strong>网络基础</strong>
 - <strong>客户端（Client）</strong>：发起请求的一方，通常是用户的浏览器或 App。
 - <strong>服务器（Server）</strong>：响应请求的一方，一台永远开机、等人来问的电脑。
-- <strong>请求 / 响应（Request / Response）</strong>：互联网对话的基本单位——一问一答。
+- <strong>请求 / 响应（Request / Response）</strong>：互联网对话的基本单位，一问一答。
 - <strong>HTTP / HTTPS</strong>：客户端和服务器约定的说话格式；S 表示加密。
 - <strong>URL</strong>：一个资源在互联网上的完整地址。
 - <strong>IP 地址（IP Address）</strong>：每台联网设备的数字门牌号。
 - <strong>域名（Domain）</strong>：给 IP 起的人类能记住的名字，按年付费租用。
 - <strong>DNS</strong>：把域名翻译成 IP 的全球电话簿；A/CNAME/TXT/MX 是常见记录类型。
 - <strong>CDN</strong>：把文件复制到全球各地节点、就近分发的网络。
-- <strong>缓存（Cache)</strong>：把结果暂存起来下次直接用，快，但可能"旧"。
+- <strong>缓存（Cache）</strong>：把结果暂存起来下次直接用，快，但可能"旧"。
 
 <strong>前端与后端</strong>
 - <strong>前端（Frontend）</strong>：跑在用户设备上的那一半，用户看得见也改得了。
@@ -40,23 +40,23 @@ readTime: 7
 - <strong>Postgres</strong>：最流行的开源关系型数据库，Supabase 的地基。
 - <strong>Supabase</strong>：托管好的 Postgres，附送登录、存储和现成 API。
 - <strong>迁移（Migration）</strong>：把每次表结构变更写成脚本，让数据库历史可追溯、可重放。
-- <strong>Schema</strong>：数据库的整体结构设计——有哪些表、各有哪些列。
-- <strong>RLS（Row Level Security）</strong>：行级权限——规定谁能看、能改哪些行。不开约等于公开。
+- <strong>Schema</strong>：数据库的整体结构设计，有哪些表，各有哪些列。
+- <strong>RLS（Row Level Security）</strong>：行级权限，规定谁能看、能改哪些行。不开约等于公开。
 - <strong>Auth</strong>：登录与身份系统。永远用现成的，别自己造。
 
 <strong>API 与集成</strong>
 - <strong>API</strong>：软件为其他软件开的服务窗口。
-- <strong>REST</strong>：最流行的 API 风格——URL 是名词，HTTP 方法是动词。
+- <strong>REST</strong>：最流行的 API 风格，URL 是名词，HTTP 方法是动词。
 - <strong>端点（Endpoint）</strong>：API 的一个具体窗口，如 `GET /certificates/123`。
-- <strong>JSON</strong>：软件之间传数据的通用格式，"名字: 值"的组合。
+- <strong>JSON</strong>：软件之间传数据的通用格式，`名字: 值`的组合。
 - <strong>API Key</strong>：调用 API 的通行证，属于秘密。
-- <strong>Token</strong>：广义的"凭证/令牌"。注意 AI 语境里另有含义：文本的计量单位。
-- <strong>Webhook</strong>：反向的 API——你留个网址，对方那边一有事就主动来敲门通知你。
+- <strong>Token</strong>：广义的"凭证/令牌"。注意 AI 语境里另有含义，指文本的计量单位。
+- <strong>Webhook</strong>：反向的 API，你留个网址，对方那边一有事就主动来敲门通知你。
 
 <strong>云与部署</strong>
 - <strong>云（Cloud）</strong>：别人机房里租给你的电脑和服务。
 - <strong>VPS / 服务器</strong>：租的一整台永远开机的机器，全部自管。
-- <strong>Serverless</strong>：不用管服务器的运行方式——函数被访问才唤醒，按次计费。
+- <strong>Serverless</strong>：不用管服务器的运行方式，函数被访问才唤醒，按次计费。
 - <strong>Function / Edge Function</strong>：Serverless 里那段"被叫醒才干活"的代码。
 - <strong>Vercel</strong>：前端全球分发 + 后端函数托管 + 连 GitHub 自动部署的平台。
 - <strong>部署（Deploy）</strong>：把代码放到全世界能访问的地方跑起来。
@@ -91,11 +91,11 @@ readTime: 7
 - <strong>上下文（Context）</strong>：AI 当前"视野"里的全部信息；有限，会被挤出去。
 - <strong>提示词（Prompt）</strong>：你对 AI 说的话；质量决定产出。
 - <strong>Agent</strong>：能自己计划、执行、观察、再计划的 AI 工作方式，Claude Code 即是。
-- <strong>幻觉（Hallucination）</strong>：AI 一本正经的胡说。防它的方法是第 14 章。
+- <strong>幻觉（Hallucination）</strong>：AI 一本正经的胡说。防它的办法在第 14 章。
 
 <strong>我们的世界</strong>
-- <strong>区块链（Blockchain)</strong>：一本全球共同记账、写上去就改不了的公共账本。
-- <strong>智能合约（Smart Contract）</strong>：部署到链上就无法修改的程序——刻在石头上的后端，所以部署前的谨慎要乘一百。
+- <strong>区块链（Blockchain）</strong>：一本全球共同记账、写上去就改不了的公共账本。
+- <strong>智能合约（Smart Contract）</strong>：部署到链上就无法修改的程序，相当于刻在石头上的后端，部署前的谨慎要乘一百。
 - <strong>铸造（Mint）</strong>：在链上创造一个新的凭证/资产，不可逆操作的典型代表。
 
 ## 02 上手工具
@@ -118,12 +118,12 @@ readTime: 2
 - <strong>scripts / npm run</strong>：package.json 里的快捷按钮区 / 按下快捷按钮。
 - <strong>.env.example</strong>：环境变量清单模板，只列名字不含钥匙，可进 Git。
 - <strong>CLAUDE.md / 技能（Skill）</strong>：项目宪法 / 可复用的专项规程。
-- <strong>审查（Review）</strong>：合并前正眼看完全部差异并给出意见的过程——本册真正想教会你的事。
+- <strong>审查（Review）</strong>：合并前正眼看完全部差异并给出意见的过程，也是本册真正想教会你的事。
 
 ---
 
-*第二册《上手工具》v1.0 · 完*
-*下一册：《读懂语言》——读懂 AI 写下的每一个文件。*
+*第二册《上手工具》v1.1 · 完*
+*下一册《读懂语言》，读懂 AI 写下的每一个文件。*
 
 ## 03 读懂语言
 
@@ -134,7 +134,7 @@ readTime: 2
 
 - <strong>标签（Tag）/ 属性（Attribute）/ DOM</strong>：HTML 的积木 / 积木上的设置项 / 那棵树在浏览器内存里的活体。
 - <strong>选择器（Selector）</strong>：CSS 的"选中谁"，`.class` 最常用。
-- <strong>盒模型（Box Model）</strong>：内容 → padding → border → margin，每个元素都是套娃矩形。
+- <strong>盒模型（Box Model）</strong>：从里到外内容、padding、border、margin 四层，每个元素都是套娃矩形。
 - <strong>层叠（Cascade）</strong>：多条规则撞车时，更具体、更靠后的赢。
 - <strong>Tailwind</strong>：预制 class 字典，把样式直接挂在 HTML 的名牌位上。
 - <strong>箭头函数（=>）</strong>：function 的现代简写。
@@ -152,8 +152,8 @@ readTime: 2
 
 ---
 
-*第三册《读懂语言》v1.0 · 完*
-*下一册：《深入系统》——下车，打开引擎盖。*
+*第三册《读懂语言》v1.1 · 完*
+*下一册《深入系统》，下车，打开引擎盖。*
 
 ## 04 深入系统
 
@@ -163,7 +163,7 @@ readTime: 2
 # 附：本册新词
 
 - <strong>源站（Origin）</strong>：门面（Cloudflare）背后真正干活的机器。
-- <strong>橙云（Proxied）</strong>：Cloudflare 的核心开关——开了，一切流量先过它的手。
+- <strong>橙云（Proxied）</strong>：Cloudflare 的核心开关，开了，一切流量先过它的手。
 - <strong>Purge</strong>：主动清空 CDN 里的旧答案。
 - <strong>SSH / 密钥对</strong>：加密的远程终端 / 门上的锁（公钥）与兜里的钥匙（私钥，永不外传，包括对 AI）。
 - <strong>指纹（Fingerprint）</strong>：首次连接时记下的服务器"长相"，防冒充。
@@ -172,11 +172,11 @@ readTime: 2
 - <strong>端口（Port）</strong>：IP 是楼，端口是房间；80、443、22 三大名门。
 - <strong>反向代理（Reverse Proxy）/ Nginx</strong>：替服务器在大门口接客的前台。
 - <strong>502 Bad Gateway</strong>：前台在，后面的人死了。
-- <strong>主键 / 外键</strong>：行的身份证 / 表间的工号——且由数据库强制守护。
+- <strong>主键 / 外键</strong>：行的身份证 / 表间的工号，且由数据库强制守护。
 - <strong>索引（Index）</strong>：书后的检索目录，用空间换时间。
 - <strong>RLS / policy / using / with check</strong>：行级门规 / 开出的缝 / 管旧行 / 管新行。
 - <strong>auth.uid()</strong>："现在敲门的这个人是谁"。
-- <strong>Bearer / Authorization 头</strong>：钥匙的唯一正确携带位置——永不进 URL。
+- <strong>Bearer / Authorization 头</strong>：钥匙的唯一正确携带位置，永不进 URL。
 - <strong>/v1</strong>：对调用者的冻结承诺；改动进 /v2。
 - <strong>缓存（Cache）/ TTL / 失效</strong>：记下的答案 / 保质期 / 扔掉旧答案。
 - <strong>Redis</strong>：专职记答案的内存数据库，认脸即可。
@@ -186,8 +186,8 @@ readTime: 2
 
 ---
 
-*第四册《深入系统》v1.0 · 完*
-*下一册：《跟 AI 搭档》——先认识你的搭档，再立好共事的制度。*
+*第四册《深入系统》v1.1 · 完*
+*下一册《跟 AI 搭档》，先认识你的搭档，再立好共事的制度。*
 
 ## 05 跟 AI 搭档
 
@@ -196,28 +196,28 @@ readTime: 2
 ---
 # 附：本册新词
 
-- <strong>预训练（Pre-training）</strong>：出厂第一课——万亿次"猜下一个词"，能力与毛病共同的源头。
+- <strong>预训练（Pre-training）</strong>：出厂第一课，万亿次"猜下一个词"，能力与毛病共同的源头。
 - <strong>基座模型（Base Model）</strong>：只会补全、还不会当助手的原始形态。
-- <strong>后训练 / SFT / 强化学习（RLHF）</strong>：出厂第二课——示范教学给格式，打分教学给性格。
-- <strong>讨好（Sycophancy）</strong>："你说得对"的出厂原因：赞同在打分中拿高分。
+- <strong>后训练 / SFT / 强化学习（RLHF）</strong>：出厂第二课，示范教学给格式，打分教学给性格。
+- <strong>讨好（Sycophancy）</strong>："你说得对"的出厂原因，赞同在打分中拿高分。
 - <strong>Token</strong>：它读写与计费的最小单位。
 - <strong>上下文窗口（Context Window）</strong>：搭档的全部工作记忆；不在窗口里的等于不存在。
 - <strong>知识截止（Knowledge Cutoff）</strong>：训练数据停止的日期，之后的世界它没读过。
-- <strong>蒸馏（Distillation）</strong>：大模型当老师教小模型——又快又便宜的小号的来历。
-- <strong>LoRA</strong>：冻结原模型、只训一小片补丁的微调法；"某某微调版"的本体。
+- <strong>蒸馏（Distillation）</strong>：大模型当老师教小模型，又快又便宜的小号的来历。
+- <strong>LoRA</strong>：冻结原模型、只训一小片补丁的微调法，"某某微调版"的本体。
 - <strong>开放权重（Open Weights）</strong>：可下载到自己机器上跑的模型（最小的树莓派也跑得动）。
-- <strong>Embedding（嵌入向量）</strong>：把"意思"变成坐标——意思相近，坐标相邻。
-- <strong>RAG（检索增强生成）</strong>：先查资料再开口；"递材料胜过考记忆"的制度化。
-- <strong>提示注入（Prompt Injection）</strong>：藏在外部内容里、写给 AI 看的恶意指令；"永远不要相信进入上下文的外部内容"。
+- <strong>Embedding（嵌入向量）</strong>：把"意思"变成坐标，意思相近，坐标相邻。
+- <strong>RAG（检索增强生成）</strong>：先查资料再开口，"递材料胜过考记忆"的制度化。
+- <strong>提示注入（Prompt Injection）</strong>：藏在外部内容里、写给 AI 看的恶意指令，防它的口诀是"永远不要相信进入上下文的外部内容"。
 - <strong>规格（Spec）/ 非目标 / 验收标准</strong>：先于代码的正式文件 / 明确不做什么 / 可判定的"怎么算过"。
 - <strong>单元测试 / 回归</strong>：给功能上笼子 / "改 A 坏 B"的鬼，测试是捉鬼的灯。
-- <strong>CI/CD / 门禁</strong>：每次 push 自动检查 / 红灯挡路绿灯放行——规矩从文字毕业成机制。
-- <strong>威胁建模</strong>：三问——值得偷的是什么、谁会来（扫描器）、从哪进。
+- <strong>CI/CD / 门禁</strong>：每次 push 自动检查 / 红灯挡路绿灯放行，规矩从文字毕业成机制。
+- <strong>威胁建模</strong>：三问，值得偷的是什么，谁会来（扫描器），从哪进。
 - <strong>测试网（Testnet）</strong>：链上世界的 Preview，一切代价为零的彩排场。
-- <strong>双人规则</strong>：不可逆动作必须第二双眼睛——父子搭档的工程学意义。
+- <strong>双人规则</strong>：不可逆动作必须第二双眼睛看过；一个人时，隔了一晚、对着操作单复核的自己也算。
 - <strong>许可证单向门</strong>：从严可以放宽，从宽永远收不回。
 
 ---
 
-*第五册《跟 AI 搭档》v1.0 · 完*
-*全系列 · 完。书架上见：books.stickmancharles.com*
+*第五册《跟 AI 搭档》v1.1 · 完*
+*全系列 · 完。书架上见，books.stickmancharles.com*
