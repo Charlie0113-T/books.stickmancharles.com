@@ -1,0 +1,30 @@
+<svg viewBox="0 0 720 288" role="img" data-caption="图 7 · 同一台电脑，两种说话方式" aria-label="示意图：图形界面是指指点点，终端是直接下命令；终端精确、可重复、可自动化，AI 真正动手时走的就是终端，而终端里真正危险的只有删除类命令。">
+  <rect class="s" x="40" y="40" width="280" height="130" rx="2"/>
+  <line class="s s2" x1="40" y1="64" x2="320" y2="64"/>
+  <circle class="fl" cx="54" cy="52" r="2.5"/>
+  <circle class="fl" cx="64" cy="52" r="2.5"/>
+  <circle class="fl" cx="74" cy="52" r="2.5"/>
+  <rect class="s s2" x="64" y="86" width="76" height="26" rx="2"/>
+  <rect class="s s2" x="152" y="86" width="76" height="26" rx="2"/>
+  <line class="s s3" x1="64" y1="132" x2="240" y2="132"/>
+  <line class="s s3" x1="64" y1="150" x2="196" y2="150"/>
+  <path class="fl" d="M196,120 L196,146 L202,140 L208,151 L213,148 L207,138 L215,138 Z"/>
+  <text class="t" x="40" y="196">图形界面 · 指指点点</text>
+  <text class="ts" x="40" y="218">菜单摆在眼前，看着点</text>
+
+  <rect class="s" x="400" y="40" width="280" height="130" rx="2"/>
+  <line class="s s2" x1="400" y1="64" x2="680" y2="64"/>
+  <circle class="fl" cx="414" cy="52" r="2.5"/>
+  <circle class="fl" cx="424" cy="52" r="2.5"/>
+  <circle class="fl" cx="434" cy="52" r="2.5"/>
+  <text class="tm" x="420" y="90">$ pwd</text>
+  <text class="tm" x="420" y="110">/Users/charles/echoforge</text>
+  <text class="tm" x="420" y="130">$ ls</text>
+  <text class="tm" x="420" y="150">src  package.json  .env</text>
+  <text class="t" x="400" y="196">终端 · 直接下命令</text>
+  <text class="ts" x="400" y="218">精确 · 可重复 · 可自动化，AI 动手时走的就是这条</text>
+
+  <path class="s" d="M44,254 L56,254 L50,243 Z"/>
+  <text class="ts" x="66" y="254">看到 rm -rf 出现在 AI 要执行的命令里，停下来多看一眼——终端删除没有回收站</text>
+  <text class="mk" x="700" y="278" text-anchor="end">stickmancharles.com · CC BY-NC-ND 4.0</text>
+</svg>

@@ -1,0 +1,32 @@
+<svg viewBox="0 0 720 286" role="img" data-caption="图 12 · 你来当导演：给剧本、划红线、看回放" aria-label="示意图：AI 在读代码、定计划、执行、观察的循环里干活；人的角色是导演，做三件事：给剧本把需求讲清楚，划红线说明什么绝对不能动，看回放验证结果。打字交给 AI。">
+  <circle class="s" cx="110" cy="70" r="14"/>
+  <line class="s" x1="110" y1="84" x2="110" y2="142"/>
+  <line class="s" x1="84" y1="104" x2="136" y2="104"/>
+  <line class="s" x1="110" y1="142" x2="92" y2="178"/>
+  <line class="s" x1="110" y1="142" x2="128" y2="178"/>
+  <text class="t" x="110" y="206" text-anchor="middle">你 · 导演</text>
+
+  <text class="ts" x="286" y="84" text-anchor="middle">① 给剧本 · 把需求讲清楚（第 13 章）</text>
+  <line class="s" x1="152" y1="96" x2="422" y2="96"/>
+  <polyline class="s" points="415,91 422,96 415,101"/>
+
+  <text class="ts" x="286" y="122" text-anchor="middle">② 划红线 · 什么绝对不能动</text>
+  <line class="s" x1="152" y1="134" x2="422" y2="134"/>
+  <polyline class="s" points="415,129 422,134 415,139"/>
+
+  <text class="ts" x="286" y="160" text-anchor="middle">③ 看回放 · 验证结果（第 14 章）</text>
+  <line class="s" x1="152" y1="172" x2="422" y2="172"/>
+  <polyline class="s" points="415,167 422,172 415,177"/>
+
+  <rect class="s" x="428" y="48" width="252" height="144" rx="2"/>
+  <text class="tm" x="448" y="76">读代码 · 进入视野的叫上下文</text>
+  <text class="tm" x="448" y="102">理解意图 · 定计划</text>
+  <text class="tm" x="448" y="128">执行命令 · 修改文件</text>
+  <text class="tm" x="448" y="154">观察结果 · 再来一轮</text>
+  <text class="ts" x="448" y="180">知识面广、不知疲倦，也会自信地犯错</text>
+  <text class="t" x="428" y="206">AI · 打字这件事交给它</text>
+
+  <line class="s s3" x1="40" y1="228" x2="680" y2="228"/>
+  <text class="ts" x="40" y="252">红线只有你知道在哪：已经部署的、花了真钱的、不可逆的——AI 对你独有的约束一无所知，除非你告诉它</text>
+  <text class="mk" x="700" y="276" text-anchor="end">stickmancharles.com · CC BY-NC-ND 4.0</text>
+</svg>

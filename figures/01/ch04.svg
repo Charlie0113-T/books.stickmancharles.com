@@ -1,0 +1,36 @@
+<svg viewBox="0 0 720 274" role="img" data-caption="图 4 · 柜台窗口：你进不去金库，只能到窗口办事" aria-label="示意图：你的程序不能直接进数据库这座金库，只能到 API 这个柜台窗口，按规定格式办规定范围内的业务。">
+  <path class="s s3 d" d="M110,88 C 220,14 500,14 610,88"/>
+  <line class="s s3" x1="352" y1="24" x2="368" y2="40"/>
+  <line class="s s3" x1="368" y1="24" x2="352" y2="40"/>
+  <text class="ts" x="384" y="38">金库不让你直接进</text>
+
+  <rect class="s" x="40" y="90" width="140" height="80" rx="2"/>
+  <line class="s s3" x1="58" y1="118" x2="150" y2="118"/>
+  <line class="s s3" x1="58" y1="136" x2="126" y2="136"/>
+  <text class="t" x="110" y="192" text-anchor="middle">你的程序</text>
+
+  <rect class="s" x="290" y="60" width="140" height="140" rx="2"/>
+  <text class="tm" x="360" y="84" text-anchor="middle">API</text>
+  <rect class="s s2" x="306" y="96" width="108" height="40" rx="2"/>
+  <line class="s s3" x1="306" y1="116" x2="414" y2="116"/>
+  <text class="ts" x="360" y="160" text-anchor="middle">按规定格式填单</text>
+  <text class="ts" x="360" y="180" text-anchor="middle">办规定范围的事</text>
+  <text class="t" x="360" y="222" text-anchor="middle">柜台窗口</text>
+
+  <rect class="s" x="540" y="90" width="140" height="80" rx="2"/>
+  <circle class="s s2" cx="610" cy="130" r="22"/>
+  <circle class="fl" cx="610" cy="130" r="3"/>
+  <line class="s s3" x1="610" y1="108" x2="610" y2="118"/>
+  <line class="s s3" x1="610" y1="142" x2="610" y2="152"/>
+  <line class="s s3" x1="588" y1="130" x2="598" y2="130"/>
+  <line class="s s3" x1="622" y1="130" x2="632" y2="130"/>
+  <text class="t" x="610" y="192" text-anchor="middle">数据库 · 金库</text>
+
+  <line class="s" x1="184" y1="130" x2="284" y2="130"/>
+  <polyline class="s" points="276,125 284,130 276,135"/>
+  <line class="s" x1="434" y1="130" x2="534" y2="130"/>
+  <polyline class="s" points="526,125 534,130 526,135"/>
+
+  <text class="ts" x="360" y="242" text-anchor="middle">URL 是名词（要哪种东西），HTTP 方法是动词：GET 读 · POST 新建 · PATCH 改 · DELETE 删</text>
+  <text class="mk" x="700" y="264" text-anchor="end">stickmancharles.com · CC BY-NC-ND 4.0</text>
+</svg>

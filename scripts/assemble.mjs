@@ -5,13 +5,14 @@
 // 改书 → 重跑本脚本 → 站点更新。永远不要直接编辑 docs/guide/ 下的生成文件。
 //
 // 从 scripts/assemble.py 逐行等价移植（迁移到 Node 是为了让 CI 构建环境只依赖 Node）。
-import { readFileSync, writeFileSync, mkdirSync } from 'node:fs'
+import { readFileSync, writeFileSync, mkdirSync, existsSync } from 'node:fs'
 import { join, dirname } from 'node:path'
 import { fileURLToPath } from 'node:url'
 
 const ROOT = dirname(dirname(fileURLToPath(import.meta.url)))
 const BOOKS = join(ROOT, 'books')
 const GUIDE = join(ROOT, 'docs', 'guide')
+const FIGURES = join(ROOT, 'figures')
 
 export const VOLS = [
   {
@@ -83,6 +84,28 @@ export function fixBold(text) {
   return t.replace(/\u0000(\d+)\u0000/g, (_, i) => vault[Number(i)])
 }
 
+// 章节配图：只上站，不进书稿也不进 PDF——books/ 是 PDF 的唯一来源，图放在它外面，
+// PDF 自然不受影响。figures/<册>/<页>.svg 存在就内联到章标题之后。
+//
+// 为什么内联而不是 <img src="...svg">：站点黑白两套主题靠 .dark 切换，图里的线用
+// currentColor 画，内联进 HTML 才能继承页面文字色，深浅两边各自成立，切主题也跟着走。
+// 外链的 SVG 是另一个文档，读不到这边的 currentColor，深色下会变成一团黑。
+//
+// 图注文案存在 SVG 根节点的 data-caption 上，一张图一个文件，不另立清单。
+function figure(volId, fname, md) {
+  const path = join(FIGURES, volId, `${fname}.svg`)
+  if (!existsSync(path)) return md
+  const svg = readFileSync(path, 'utf8').trim()
+  const cap = (svg.match(/data-caption="([^"]*)"/) || [])[1] || ''
+  // 整块不能出现空行：markdown-it 的 HTML 块遇空行即结束，断开后半截 SVG 会被当正文渲染
+  const block = ['<figure class="book-figure">',
+                 svg.replace(/\n\s*/g, ' '),
+                 cap && `<figcaption>${cap}</figcaption>`,
+                 '</figure>'].filter(Boolean).join('\n')
+  const nl = md.indexOf('\n')            // 第一行是章标题 h1，图插在它后面
+  return `${md.slice(0, nl + 1)}\n${block}\n${md.slice(nl + 1)}`
+}
+
 function tidy(text) {
   text = text.replace(/\n---\n\s*$/, '\n')   // 去掉块尾分隔线
   text = text.replace(/^\s*---\n/, '')       // 去掉块首分隔线
@@ -135,7 +158,8 @@ function splitVolume(vol) {
       const main = title.split(/ · |：/)[0]
       const fname = `ch${String(num).padStart(2, '0')}`
       body = body.replace(/^# 第[一二三四五]部分.*$/gm, '')
-      writeFileSync(join(outdir, `${fname}.md`), frontmatter(vol, body) + tidy(fixBold(beats(body))), 'utf8')
+      const page = figure(vol.id, fname, tidy(fixBold(beats(body))))
+      writeFileSync(join(outdir, `${fname}.md`), frontmatter(vol, body) + page, 'utf8')
       chapters[num] = { file: fname, main }
       continue
     }

@@ -4,7 +4,7 @@
 
 ## 正文与网站源码：CC BY-NC-ND 4.0
 
-书稿正文、速查页、项目页、站点文案，以及这个网站的源码本身（`scripts/` 装配脚本、`docs/.vitepress/` 站点配置与主题、部署配置），都适用 [CC BY-NC-ND 4.0](https://creativecommons.org/licenses/by-nc-nd/4.0/deed.zh-hans)（署名 — 非商业性使用 — 禁止演绎）。全文见仓库里的 `LICENSE-CONTENT.md`。
+书稿正文、章节配图（`figures/` 里的线稿 SVG）、速查页、项目页、站点文案，以及这个网站的源码本身（`scripts/` 装配脚本、`docs/.vitepress/` 站点配置与主题、部署配置），都适用 [CC BY-NC-ND 4.0](https://creativecommons.org/licenses/by-nc-nd/4.0/deed.zh-hans)（署名 — 非商业性使用 — 禁止演绎）。全文见仓库里的 `LICENSE-CONTENT.md`。
 
 意思是：你可以自由地转载、打印、分发这套书和这个站的源码，只要**署名**、**不拿去卖**、**不改动内容再发布**。这个站是一件完整的作品——书、书架、装配管线是一体的，所以源码和正文走同一份许可。
 
@@ -22,7 +22,7 @@
 
 ## 品牌资产：两份许可证都不包括
 
-「Stickman Charles」这个名字、站点用的 favicon（`docs/public/favicon.png`）、分享卡片用的 og-image（`docs/public/og-image.png`），以及其他代表这个品牌的视觉识别资产，不在上面两份许可证的范围里——CC BY-NC-ND 不管，MIT 也不管。
+「Stickman Charles」这个名字、站点用的 favicon（`docs/public/favicon.png`）、分享卡片用的 og-image（`docs/public/og-image.png`），以及其他代表这个品牌的视觉识别资产，不在上面两份许可证的范围里——CC BY-NC-ND 不管，MIT 也不管。章节配图不算品牌资产，它是正文的一部分，走上面那份 CC BY-NC-ND，每张图右下角都写着这句话。
 
 意思是：不能因为"内容是 CC 协议"或者"代码是 MIT"，想用，来信聊，多数情况可以商量，但要事先说一声。
 

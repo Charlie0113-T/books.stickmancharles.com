@@ -479,6 +479,52 @@ body::after {
 }
 .cm-v { font-size: 12px; font-weight: 300; color: var(--vp-c-text-2); letter-spacing: 0.04em; }
 
+/* ── 章节配图（figures/*.svg，由 scripts/assemble.mjs 内联进章节页） ──
+   图里只画几何，样式全在这里：线用 currentColor，深浅两套主题各自成立，
+   切主题时图跟着切。改线宽、字号、灰度，改这一段，全书的图一起变。 */
+.book-figure {
+  margin: 34px 0;
+  padding: 24px 26px 16px;
+  border: 1px solid var(--vp-c-divider);
+  border-radius: var(--pos-radius);
+  background: var(--vp-c-bg-soft);
+}
+.book-figure svg { display: block; width: 100%; height: auto; color: var(--vp-c-text-1); }
+.book-figure figcaption {
+  margin-top: 16px;
+  padding-top: 12px;
+  border-top: 1px solid var(--vp-c-divider);
+  font-family: var(--vp-font-family-mono);
+  font-size: 11px; font-weight: 300; letter-spacing: 0.1em;
+  color: var(--vp-c-text-3);
+}
+
+/* 线条：s 主线，叠 s2 / s3 降灰度，叠 d 变虚线；hl 用来圈重点 */
+.book-figure .s {
+  fill: none; stroke: currentColor; stroke-width: 1.15;
+  stroke-linecap: round; stroke-linejoin: round;
+}
+.book-figure .s2 { opacity: 0.5; }
+.book-figure .s3 { opacity: 0.28; }
+.book-figure .d { stroke-dasharray: 4 4; }
+.book-figure .hl { fill: none; stroke: currentColor; stroke-width: 2; }
+.book-figure .fl { fill: currentColor; stroke: none; }
+
+/* 文字：t 正文标签，tk 关键词，ts 小注，tm 等宽（命令 / 字段名），mk 水印 */
+.book-figure text { fill: currentColor; font-family: var(--vp-font-family-base); font-weight: 300; }
+.book-figure .t { font-size: 12px; opacity: 0.85; }
+.book-figure .tk { font-size: 13px; font-weight: 500; }
+.book-figure .ts { font-size: 11px; opacity: 0.6; }
+.book-figure .tm { font-family: var(--vp-font-family-mono); font-size: 11px; letter-spacing: 0.06em; opacity: 0.6; }
+.book-figure .mk { font-family: var(--vp-font-family-mono); font-size: 9px; letter-spacing: 0.12em; opacity: 0.32; }
+
+/* 窄屏：图不缩到看不清，改成整块横向滚动 */
+@media (max-width: 720px) {
+  .book-figure { padding: 18px 16px 12px; overflow-x: auto; }
+  .book-figure svg { width: 660px; max-width: none; }
+  .book-figure figcaption { position: sticky; left: 0; }
+}
+
 /* ── 表格 / 代码 / 链接 ── */
 .vp-doc table { border-collapse: collapse; }
 .vp-doc th, .vp-doc td { border: 1px solid var(--vp-c-divider); }

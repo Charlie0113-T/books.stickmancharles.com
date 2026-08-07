@@ -1,0 +1,27 @@
+<svg viewBox="0 0 720 284" role="img" data-caption="图 16 · 学习飞轮：造东西，撞见新词，五分钟搞懂，回去继续造" aria-label="示意图：一个转动的学习飞轮，造东西、撞见新词、花五分钟搞懂它、回去继续造；那五分钟按顺序问三句话，然后把新词加进术语表。">
+  <circle class="s s2" cx="200" cy="140" r="86"/>
+  <circle class="fl" cx="200" cy="54" r="4"/>
+  <circle class="fl" cx="286" cy="140" r="4"/>
+  <circle class="fl" cx="200" cy="226" r="4"/>
+  <circle class="fl" cx="114" cy="140" r="4"/>
+  <polyline class="s" points="257,69 261,79 251,75"/>
+  <polyline class="s" points="149,205 139,201 143,211"/>
+
+  <text class="t" x="200" y="42" text-anchor="middle">造东西</text>
+  <text class="t" x="298" y="144">撞见新词</text>
+  <text class="t" x="200" y="248" text-anchor="middle">花五分钟搞懂它</text>
+  <text class="t" x="102" y="144" text-anchor="end">回去继续造</text>
+  <text class="tm" x="200" y="136" text-anchor="middle">学习飞轮</text>
+  <text class="ts" x="200" y="158" text-anchor="middle">越转越大</text>
+
+  <rect class="s" x="350" y="54" width="330" height="176" rx="2"/>
+  <text class="tm" x="368" y="84">遇到不懂的词，按顺序问三句</text>
+  <line class="s s3" x1="368" y1="96" x2="662" y2="96"/>
+  <text class="ts" x="368" y="122">① 用 14 岁能懂的方式解释 X，它解决了什么问题</text>
+  <text class="ts" x="368" y="152">② X 和 Y 有什么区别？什么时候用哪个？</text>
+  <text class="ts" x="368" y="182">③ 我们的项目里有 X 吗？在哪？</text>
+  <text class="ts" x="368" y="214">然后把这个词加进附录 A——那份术语表是活的</text>
+
+  <text class="ts" x="40" y="272">地图永远比领土小，但地图是可以画大的</text>
+  <text class="mk" x="700" y="272" text-anchor="end">stickmancharles.com · CC BY-NC-ND 4.0</text>
+</svg>

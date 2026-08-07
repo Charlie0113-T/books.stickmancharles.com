@@ -1,0 +1,28 @@
+<svg viewBox="0 0 720 282" role="img" data-caption="图 8 · 时间机器：存档点、平行存档、合回主线" aria-label="示意图：Git 的主线上一串 commit 存档点，中间开出一条 branch 平行存档去试危险打法，试成了 merge 合回主线，试崩了整条扔掉，任何时候都能回到某个存档点。">
+  <text class="tm" x="60" y="126">main</text>
+  <line class="s s2" x1="60" y1="140" x2="660" y2="140"/>
+  <circle class="s" cx="100" cy="140" r="6"/>
+  <circle class="s" cx="180" cy="140" r="6"/>
+  <circle class="s" cx="260" cy="140" r="6"/>
+  <circle class="s" cx="340" cy="140" r="6"/>
+  <circle class="s" cx="540" cy="140" r="6"/>
+  <circle class="s" cx="620" cy="140" r="6"/>
+
+  <path class="s" d="M260,140 C 300,140 300,88 340,88"/>
+  <circle class="s" cx="400" cy="88" r="6"/>
+  <circle class="s" cx="460" cy="88" r="6"/>
+  <line class="s" x1="346" y1="88" x2="394" y2="88"/>
+  <line class="s" x1="406" y1="88" x2="454" y2="88"/>
+  <path class="s" d="M466,88 C 506,88 506,140 540,140"/>
+
+  <text class="ts" x="100" y="166" text-anchor="middle">commit 存档点</text>
+  <text class="t" x="400" y="68" text-anchor="middle">branch · 开一个平行存档，去试危险打法</text>
+  <text class="ts" x="400" y="110" text-anchor="middle">试崩了，整条扔掉，无事发生</text>
+  <text class="ts" x="562" y="166">merge 合回主线</text>
+
+  <path class="s s3 d" d="M620,154 C 500,206 300,206 186,156"/>
+  <polyline class="s s3" points="192,164 184,154 195,153"/>
+  <text class="ts" x="400" y="222" text-anchor="middle">想回到任何一个存档点，随时可以</text>
+  <text class="ts" x="40" y="248">平时三招傍身：git status（改了什么还没存档） · git log --oneline（存档历史） · git diff（这次改了什么）</text>
+  <text class="mk" x="700" y="272" text-anchor="end">stickmancharles.com · CC BY-NC-ND 4.0</text>
+</svg>

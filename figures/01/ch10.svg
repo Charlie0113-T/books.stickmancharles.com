@@ -1,0 +1,60 @@
+<svg viewBox="0 0 720 314" role="img" data-caption="图 10 · 购物清单与搬回家的货" aria-label="示意图：package.json 是项目的购物清单，写着依赖哪些包、各要什么版本；npm install 按清单把货搬回 node_modules 文件夹；lock 文件把精确版本钉死，保证人人装到的完全一样。">
+  <rect class="s" x="40" y="60" width="200" height="110" rx="2"/>
+  <text class="tm" x="58" y="86">package.json</text>
+  <line class="s s3" x1="58" y1="96" x2="222" y2="96"/>
+  <rect class="s s2" x="58" y="108" width="8" height="8" rx="1"/>
+  <line class="s s3" x1="74" y1="112" x2="210" y2="112"/>
+  <rect class="s s2" x="58" y="128" width="8" height="8" rx="1"/>
+  <line class="s s3" x1="74" y1="132" x2="188" y2="132"/>
+  <rect class="s s2" x="58" y="148" width="8" height="8" rx="1"/>
+  <line class="s s3" x1="74" y1="152" x2="200" y2="152"/>
+  <text class="t" x="40" y="196">购物清单</text>
+  <text class="ts" x="40" y="216">依赖哪些包，各要什么版本</text>
+
+  <line class="s" x1="246" y1="115" x2="354" y2="115"/>
+  <polyline class="s" points="346,110 354,115 346,120"/>
+  <text class="tm" x="300" y="106" text-anchor="middle">npm install</text>
+
+  <rect class="s" x="360" y="60" width="320" height="110" rx="2"/>
+  <rect class="s s3" x="378" y="80" width="12" height="12" rx="1"/>
+  <rect class="s s3" x="404" y="80" width="12" height="12" rx="1"/>
+  <rect class="s s3" x="430" y="80" width="12" height="12" rx="1"/>
+  <rect class="s s3" x="456" y="80" width="12" height="12" rx="1"/>
+  <rect class="s s3" x="482" y="80" width="12" height="12" rx="1"/>
+  <rect class="s s3" x="508" y="80" width="12" height="12" rx="1"/>
+  <rect class="s s3" x="534" y="80" width="12" height="12" rx="1"/>
+  <rect class="s s3" x="560" y="80" width="12" height="12" rx="1"/>
+  <rect class="s s3" x="586" y="80" width="12" height="12" rx="1"/>
+  <rect class="s s3" x="612" y="80" width="12" height="12" rx="1"/>
+  <rect class="s s3" x="638" y="80" width="12" height="12" rx="1"/>
+  <rect class="s s3" x="378" y="106" width="12" height="12" rx="1"/>
+  <rect class="s s3" x="404" y="106" width="12" height="12" rx="1"/>
+  <rect class="s s3" x="430" y="106" width="12" height="12" rx="1"/>
+  <rect class="s s3" x="456" y="106" width="12" height="12" rx="1"/>
+  <rect class="s s3" x="482" y="106" width="12" height="12" rx="1"/>
+  <rect class="s s3" x="508" y="106" width="12" height="12" rx="1"/>
+  <rect class="s s3" x="534" y="106" width="12" height="12" rx="1"/>
+  <rect class="s s3" x="560" y="106" width="12" height="12" rx="1"/>
+  <rect class="s s3" x="586" y="106" width="12" height="12" rx="1"/>
+  <rect class="s s3" x="612" y="106" width="12" height="12" rx="1"/>
+  <rect class="s s3" x="638" y="106" width="12" height="12" rx="1"/>
+  <rect class="s s3" x="378" y="132" width="12" height="12" rx="1"/>
+  <rect class="s s3" x="404" y="132" width="12" height="12" rx="1"/>
+  <rect class="s s3" x="430" y="132" width="12" height="12" rx="1"/>
+  <rect class="s s3" x="456" y="132" width="12" height="12" rx="1"/>
+  <rect class="s s3" x="482" y="132" width="12" height="12" rx="1"/>
+  <rect class="s s3" x="508" y="132" width="12" height="12" rx="1"/>
+  <rect class="s s3" x="534" y="132" width="12" height="12" rx="1"/>
+  <rect class="s s3" x="560" y="132" width="12" height="12" rx="1"/>
+  <rect class="s s3" x="586" y="132" width="12" height="12" rx="1"/>
+  <rect class="s s3" x="612" y="132" width="12" height="12" rx="1"/>
+  <rect class="s s3" x="638" y="132" width="12" height="12" rx="1"/>
+  <text class="tm" x="378" y="164">node_modules</text>
+  <text class="t" x="360" y="196">按清单搬回家的货</text>
+  <text class="ts" x="360" y="216">大得离谱是正常的，删了随时能凭清单重装，永远不需要手动去改它</text>
+
+  <line class="s s3" x1="40" y1="234" x2="680" y2="234"/>
+  <text class="ts" x="40" y="258">lock 文件把每个包的精确版本钉死，保证人人装到的完全一样</text>
+  <text class="ts" x="40" y="280">包会过时腐烂，也可能被坏人下毒（供应链攻击）——要紧的是知道自己站在谁的肩膀上</text>
+  <text class="mk" x="700" y="304" text-anchor="end">stickmancharles.com · CC BY-NC-ND 4.0</text>
+</svg>

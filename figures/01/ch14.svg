@@ -1,0 +1,26 @@
+<svg viewBox="0 0 720 302" role="img" data-caption="图 14 · 验证金字塔：从底往上查一遍" aria-label="示意图：每次交付按金字塔从底往上查一遍，能跑吗、功能对吗、边界情况、真实用户会遇到什么；大多数翻车翻在边界那一层。报错信息是礼物，原样完整贴给 AI。">
+  <path class="s" d="M90,210 L430,210 L400,170 L120,170 Z"/>
+  <path class="s" d="M120,170 L400,170 L370,130 L150,130 Z"/>
+  <path class="s" d="M150,130 L370,130 L340,90 L180,90 Z"/>
+  <path class="s" d="M180,90 L340,90 L310,50 L210,50 Z"/>
+  <text class="t" x="260" y="195" text-anchor="middle">① 能跑吗</text>
+  <text class="t" x="260" y="155" text-anchor="middle">② 功能对吗</text>
+  <text class="t" x="260" y="115" text-anchor="middle">③ 边界情况</text>
+  <text class="t" x="260" y="75" text-anchor="middle">④ 真实用户</text>
+  <text class="ts" x="260" y="234" text-anchor="middle">从底往上，一层层查</text>
+
+  <line class="s s3" x1="358" y1="110" x2="452" y2="110"/>
+  <text class="ts" x="460" y="98">空输入 · 连点两次 · 断网 · 超长文本</text>
+  <text class="ts" x="460" y="120">大多数翻车翻在这一层</text>
+
+  <line class="s s3" x1="328" y1="70" x2="452" y2="70"/>
+  <text class="ts" x="460" y="66">换台设备、换个浏览器试试</text>
+
+  <rect class="s" x="452" y="150" width="228" height="94" rx="2"/>
+  <text class="tk" x="470" y="178">报错信息是礼物</text>
+  <text class="ts" x="470" y="202">哪个文件第几行 · 什么类型的错 · 一句人话</text>
+  <text class="ts" x="470" y="226">原样完整贴给 AI，胜过转述十倍</text>
+
+  <text class="ts" x="40" y="268">两个救命习惯：把 bug 关进最小的笼子（最小复现） · AI 在错误假设上狂奔时，换个新会话重来</text>
+  <text class="mk" x="700" y="292" text-anchor="end">stickmancharles.com · CC BY-NC-ND 4.0</text>
+</svg>

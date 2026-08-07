@@ -1,0 +1,51 @@
+<svg viewBox="0 0 720 274" role="img" data-caption="图 11 · 一条有存档、有预览、能回滚的流水线" aria-label="示意图：一次典型部署从 git push 到 GitHub，触发构建，成品分发到全球节点上线；环境的顺序永远是本地、预览、生产，出了问题还能一键回滚。">
+  <rect class="s" x="40" y="52" width="140" height="52" rx="2"/>
+  <text class="tm" x="58" y="76">git push</text>
+  <text class="ts" x="58" y="94">你，或者 AI</text>
+
+  <rect class="s" x="210" y="52" width="140" height="52" rx="2"/>
+  <text class="tm" x="228" y="76">GitHub</text>
+  <text class="ts" x="228" y="94">收到通知，拉最新代码</text>
+
+  <rect class="s" x="380" y="52" width="140" height="52" rx="2"/>
+  <text class="tk" x="398" y="76">构建 Build</text>
+  <text class="ts" x="398" y="94">翻译 · 打包 · 压缩</text>
+
+  <rect class="s" x="550" y="52" width="140" height="52" rx="2"/>
+  <text class="tk" x="568" y="76">全球节点</text>
+  <text class="ts" x="568" y="94">CDN 就近分发，上线</text>
+
+  <line class="s" x1="184" y1="78" x2="204" y2="78"/>
+  <polyline class="s" points="197,73 204,78 197,83"/>
+  <line class="s" x1="354" y1="78" x2="374" y2="78"/>
+  <polyline class="s" points="367,73 374,78 367,83"/>
+  <line class="s" x1="524" y1="78" x2="544" y2="78"/>
+  <polyline class="s" points="537,73 544,78 537,83"/>
+  <text class="ts" x="40" y="34">整条流水线全自动：「我 push 了一下，网站就更新了」，原理全在这里</text>
+
+  <line class="s s3" x1="40" y1="132" x2="690" y2="132"/>
+  <rect class="s" x="40" y="156" width="150" height="52" rx="2"/>
+  <text class="tm" x="58" y="180">localhost</text>
+  <text class="ts" x="58" y="198">你的私人试验田</text>
+
+  <rect class="s" x="220" y="156" width="150" height="52" rx="2"/>
+  <text class="tm" x="238" y="180">Preview</text>
+  <text class="ts" x="238" y="198">每次改动的临时网址</text>
+
+  <rect class="s" x="400" y="156" width="150" height="52" rx="2"/>
+  <text class="tm" x="418" y="180">Production</text>
+  <text class="ts" x="418" y="198">真实用户访问的那个</text>
+
+  <line class="s" x1="194" y1="182" x2="214" y2="182"/>
+  <polyline class="s" points="207,177 214,182 207,187"/>
+  <line class="s" x1="374" y1="182" x2="394" y2="182"/>
+  <polyline class="s" points="387,177 394,182 387,187"/>
+
+  <path class="s s3 d" d="M554,182 L586,182"/>
+  <polyline class="s s3" points="579,177 586,182 579,187"/>
+  <text class="ts" x="596" y="178">回滚</text>
+  <text class="ts" x="596" y="198">退回上一版</text>
+
+  <text class="ts" x="40" y="240">本地好好的，一部署 build 就失败？几乎总是三个原因：线上缺环境变量 · 依赖版本不一致 · 本地被宽容而线上被严查的错误</text>
+  <text class="mk" x="700" y="266" text-anchor="end">stickmancharles.com · CC BY-NC-ND 4.0</text>
+</svg>

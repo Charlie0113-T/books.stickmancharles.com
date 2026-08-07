@@ -1,0 +1,28 @@
+<svg viewBox="0 0 720 284" role="img" data-caption="图 5 · 四层阶梯：代码住哪，取决于它多久醒一次" aria-label="示意图：代码可以住在四个地方，从自己的电脑、租一台永远开机的服务器、被访问才唤醒的 Serverless，到只放前端文件的静态托管，越往右你要操心的事越少。">
+  <rect class="s" x="36" y="130" width="158" height="56" rx="2"/>
+  <text class="tm" x="52" y="150">01</text>
+  <text class="tk" x="82" y="151">自己的电脑</text>
+  <text class="ts" x="52" y="172">localhost，合上就没了</text>
+
+  <rect class="s" x="200" y="98" width="158" height="56" rx="2"/>
+  <text class="tm" x="216" y="118">02</text>
+  <text class="tk" x="246" y="119">服务器 / VPS</text>
+  <text class="ts" x="216" y="140">24 小时醒着，自己维护</text>
+
+  <rect class="s" x="364" y="66" width="158" height="56" rx="2"/>
+  <text class="tm" x="380" y="86">03</text>
+  <text class="tk" x="410" y="87">Serverless</text>
+  <text class="ts" x="380" y="108">被访问才唤醒，按次计费</text>
+
+  <rect class="s" x="528" y="34" width="158" height="56" rx="2"/>
+  <text class="tm" x="544" y="54">04</text>
+  <text class="tk" x="574" y="55">静态托管</text>
+  <text class="ts" x="544" y="76">CDN 就近取货，只被看</text>
+
+  <line class="s s3" x1="128" y1="226" x2="596" y2="226"/>
+  <polyline class="s s3" points="588,221 596,226 588,231"/>
+  <text class="ts" x="36" y="230">自己操心</text>
+  <text class="ts" x="686" y="230" text-anchor="end">平台全管</text>
+  <text class="ts" x="360" y="250" text-anchor="middle">偶尔醒，Serverless。永远醒，服务器。只是被看，静态托管。</text>
+  <text class="mk" x="700" y="274" text-anchor="end">stickmancharles.com · CC BY-NC-ND 4.0</text>
+</svg>
