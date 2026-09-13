@@ -1,0 +1,106 @@
+{
+  "schemaVersion": 1,
+  "reviewedAt": "2026-09-12",
+  "sources": [
+    {
+      "path": "books/AI时代的编程指南-01-看懂地图.md",
+      "volume": "01",
+      "sha256": "afc44cefc018b85c12ff098be900ce9a51d47587526d946840fd9f30a1b14883",
+      "references": [
+        "ai-coding.md",
+        "api.md",
+        "database.md",
+        "debugging.md",
+        "deployment.md",
+        "frontend-backend.md",
+        "git-github.md",
+        "glossary.md",
+        "learning-map.md",
+        "philosophy.md",
+        "project-first.md",
+        "safety.md",
+        "terminal.md",
+        "testing.md"
+      ]
+    },
+    {
+      "path": "books/AI时代的编程指南-02-上手工具.md",
+      "volume": "02",
+      "sha256": "e332272342f02fc97f2aba4a73d5d9ecee2893fde3d07ee0b90a82a0e66b5cfe",
+      "references": [
+        "ai-coding.md",
+        "git-github.md",
+        "glossary.md",
+        "learning-map.md",
+        "project-first.md",
+        "reading-code.md",
+        "safety.md",
+        "setup.md",
+        "terminal.md",
+        "vscode.md"
+      ]
+    },
+    {
+      "path": "books/AI时代的编程指南-03-读懂语言.md",
+      "volume": "03",
+      "sha256": "e50d6a3f7bab7151f46c0939aef35d47611578936de0e38884f9e7565a379a4e",
+      "references": [
+        "database.md",
+        "debugging.md",
+        "frontend-backend.md",
+        "glossary.md",
+        "learning-map.md",
+        "project-first.md",
+        "reading-code.md",
+        "terminal.md"
+      ]
+    },
+    {
+      "path": "books/AI时代的编程指南-04-深入系统.md",
+      "volume": "04",
+      "sha256": "c28f1926ffe7977771fe40d898ae6057b6cd6c11bca93049653081efb48fa8fa",
+      "references": [
+        "api.md",
+        "database.md",
+        "debugging.md",
+        "deployment.md",
+        "glossary.md",
+        "safety.md",
+        "terminal.md"
+      ]
+    },
+    {
+      "path": "books/AI时代的编程指南-05-跟AI搭档.md",
+      "volume": "05",
+      "sha256": "9dd1a82aa835e42563dce2579ee14114c809e322996ef24a005c84286058c821",
+      "references": [
+        "ai-coding.md",
+        "deployment.md",
+        "glossary.md",
+        "learning-map.md",
+        "philosophy.md",
+        "safety.md",
+        "testing.md"
+      ]
+    },
+    {
+      "path": "docs/.vitepress/lib/read-with-ai/build-packet.ts",
+      "sha256": "f71aa8564345a0a5efed8ab8d216fac99f9a60a105cfdddb92a457eb97a903e2",
+      "references": [
+        "ai-coding.md"
+      ]
+    },
+    {
+      "path": "books/ai-metadata.json",
+      "sha256": "ca3d163bab055381827226140568f3bef7eaac187cebd76878e0b63e9e442356",
+      "references": [
+        "learning-map.md"
+      ]
+    },
+    {
+      "path": "LICENSE-CONTENT.md",
+      "sha256": "8c37e2abfed03c3bdbc4082d61fbce61e13a62b52ca65687a36c29b49ace64d5",
+      "references": []
+    }
+  ]
+}

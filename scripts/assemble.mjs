@@ -8,6 +8,7 @@
 import { readFileSync, writeFileSync, mkdirSync, existsSync } from 'node:fs'
 import { join, dirname } from 'node:path'
 import { fileURLToPath } from 'node:url'
+import { createChapterAssets } from './read-with-ai.mjs'
 
 const ROOT = dirname(dirname(fileURLToPath(import.meta.url)))
 const BOOKS = join(ROOT, 'books')
@@ -119,8 +120,9 @@ function readMinutes(text) {
 }
 
 // 每页顶部写入 frontmatter：难度星级 + 阅读时长，供右侧目录下方的元信息区读取。
-function frontmatter(vol, text) {
-  return ['---', `stars: ${vol.stars.length}`, `readTime: ${readMinutes(text)}`, '---', ''].join('\n')
+function frontmatter(vol, text, packetUrl) {
+  return ['---', `stars: ${vol.stars.length}`, `readTime: ${readMinutes(text)}`,
+    ...(packetUrl ? [`readWithAI: ${packetUrl}`] : []), '---', ''].join('\n')
 }
 
 // 侧边栏条目文案是 v-html 渲染的，这里拼出"等宽序号 + 标题"的两栏结构。
@@ -129,7 +131,7 @@ function navItem(num, title, star) {
          (star ? `<span class="s-star">${star}</span>` : '')
 }
 
-function splitVolume(vol) {
+function splitVolume(vol, assets) {
   const src = readFileSync(join(BOOKS, vol.file), 'utf8')
   const lines = src.split('\n')
   // 找出所有 h1 的位置
@@ -158,8 +160,10 @@ function splitVolume(vol) {
       const main = title.split(/ · |：/)[0]
       const fname = `ch${String(num).padStart(2, '0')}`
       body = body.replace(/^# 第[一二三四五]部分.*$/gm, '')
+      const packetUrl = assets.write(vol, num, title, body)
       const page = figure(vol.id, fname, tidy(fixBold(beats(body))))
-      writeFileSync(join(outdir, `${fname}.md`), frontmatter(vol, body) + page, 'utf8')
+        .replace(/^(# .+)\n/, '$1\n\n<ReadWithAI />\n')
+      writeFileSync(join(outdir, `${fname}.md`), frontmatter(vol, body, packetUrl) + page, 'utf8')
       chapters[num] = { file: fname, main }
       continue
     }
@@ -203,11 +207,12 @@ function splitVolume(vol) {
 
 function main() {
   mkdirSync(GUIDE, { recursive: true })
+  const assets = createChapterAssets(ROOT)
   // 00 总纲只留在 books/ 里存档，不上站（2026-08 起）
   const sidebar = []
   const glossarySecs = []
   for (const vol of VOLS) {
-    const [group, extrasOut, outdir] = splitVolume(vol)
+    const [group, extrasOut, outdir] = splitVolume(vol, assets)
     sidebar.push(group)
     // 收集术语表来源
     for (const e of extrasOut) {
@@ -218,6 +223,7 @@ function main() {
       }
     }
   }
+  assets.validate()
   const ts = 'export default ' + JSON.stringify(sidebar, null, 2)
   writeFileSync(join(ROOT, 'docs', '.vitepress', 'sidebar-books.ts'), ts, 'utf8')
 

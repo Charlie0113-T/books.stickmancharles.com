@@ -5,12 +5,27 @@
   "scripts": {
     "assemble": "node scripts/assemble.mjs",
     "pdf": "node scripts/make-pdf.mjs",
-    "docs:dev": "vitepress dev docs",
+    "docs:dev": "npm run assemble && vitepress dev docs",
     "docs:build": "npm run assemble && vitepress build docs",
     "docs:preview": "vitepress preview docs",
-    "deploy": "npm run docs:build && npx wrangler deploy"
+    "deploy": "npm run docs:build && npx wrangler deploy",
+    "lint": "eslint docs/.vitepress scripts tests eslint.config.mjs",
+    "typecheck": "vue-tsc --noEmit",
+    "test": "npm run assemble && tsx --test tests/*.test.ts",
+    "skill:check": "node scripts/check-agent-skill.mjs"
   },
   "devDependencies": {
-    "vitepress": "^1.6.4"
+    "@eslint/js": "^10.0.1",
+    "@types/node": "^22.20.2",
+    "eslint": "^10.10.0",
+    "eslint-plugin-vue": "^10.11.0",
+    "tsx": "^4.23.13",
+    "typescript": "^6.0.3",
+    "typescript-eslint": "^8.70.0",
+    "vitepress": "^1.6.4",
+    "vue-tsc": "^3.3.11"
+  },
+  "engines": {
+    "node": ">=20.19.0"
   }
 }
