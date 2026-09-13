@@ -1,0 +1,11 @@
+{
+  "version": 1,
+  "skills": {
+    "stickmancharles-ai-guide": {
+      "source": "Charlie0113-T/stickmancharles-ai-guide",
+      "sourceType": "github",
+      "skillPath": "SKILL.md",
+      "computedHash": "72a050f87a3058904a3d1724d41353db3e0704f1bce24184898f1814081e5d91"
+    }
+  }
+}
